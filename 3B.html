@@ -328,6 +328,11 @@
                 <div class="grades-grid" id="vtGrades"></div>
             </div>
             
+                        <div class="grade-section">
+                <div class="section-title">🔬 Laboratorní práce (LP)</div>
+                <div class="grades-grid" id="lpGrade"></div>
+            </div>
+            
             <div class="grade-section">
                 <div class="section-title">📄 Malé testy (MT)</div>
                 <div class="grades-grid" id="mtGrades"></div>
@@ -561,7 +566,14 @@ průměr",ZNÁMKA,email
             }
             
             // Praktické listy
-            const plContainer = document.getElementById('plGrades');
+                        
+            // Laboratorní práce
+            const lpContainer = document.getElementById('lpGrade');
+            lpContainer.innerHTML = '';
+            const lpValue = student['LP'];
+            lpContainer.innerHTML += `<div class="grade-item"><div class="grade-label">LP</div><div class="grade-value ${lpValue ? '' : 'empty'}">${lpValue || '—'}</div></div>`;
+            
+const plContainer = document.getElementById('plGrades');
             plContainer.innerHTML = '';
             for (let i = 1; i <= 8; i++) {
                 const key = `PL${i}\n(%)`;

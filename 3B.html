@@ -168,116 +168,10 @@
     </div>
     
     <script>
-        const csvData = `Poř. č.,Jméno a Příjmení,VT1,VT2,VT3,VT4,VT5,MT1,MT2,MT3,MT4,MT5,LP,"Vážený průměr","PL1 (%)","PL2 (%)","PL3 (%)","PL4 (%)","PL5 (%)","PL6 (%)","PL7 (%)","PL8 (%)","Počet PL","% PL","Průměr bonusů","Bonus 75%+","Celkový bonus","Finální průměr",ZNÁMKA,email,kody,,
-1,Baxa David,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, david_baxa@student.gymberoun.cz,2824,,
-2,Bureš Šimon,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1, simon_bures@student.gymberoun.cz,1409,,
-3,Cenknerová Eva,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, eva_cenknerova@student.gymberoun.cz,5506,,
-4,Čedroňová Tereza,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, tereza_cedronova@student.gymberoun.cz,5012,,
-5,Havlová Ivana,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,ivana_havlova@student.gymberoun.cz,4657,,
-6,Hujerová Patricie,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, patricie_hujerova@student.gymberoun.cz,3286,,
-7,Iraheta Carmen,,,,,,N,,,,,,,,,,,,,,,0,0%,0,00,0,00,0,00,,,carmen_iraheta@student.gymberoun.cz,2679,,
-8,Jandová Sofie Anna,,,,,,N,,,,,,,,,,,,,,,0,0%,0,00,0,00,0,00,,, sofie-anna_jandova@student.gymberoun.cz,9935,,
-9,Kermesová Anna,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1, anna_kermesova@student.gymberoun.cz,2424,,
-10,Koza Tomáš,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, tomas_koza@student.gymberoun.cz,7912,,
-11,Lejtnarová Iva,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2, iva_lejtnarova@student.gymberoun.cz,1520,,
-12,Macíková Anna,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, anna_macikova@student.gymberoun.cz,1488,,
-13,Musiol Kryštof,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1, krystof_musiol@student.gymberoun.cz,2535,,
-14,Pánková Anna,,,,,,4,,,,,,4,00,,,,,,,,,0,0%,0,00,0,00,0,00,4,00,4, anna_pankova@student.gymberoun.cz,4582,,
-15,Peroutka Vít,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, vit_peroutka@student.gymberoun.cz,4811,,
-16,Režňáková Lucie,,,,,,N,,,,,,,,,,,,,,,0,0%,0,00,0,00,0,00,,,lucie_reznakova@student.gymberoun.cz,9279,,
-17,Řepík Ondřej,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2, ondrej_repik@student.gymberoun.cz,1434,,
-18,Říhová Adriana,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,adriana_rihova@student.gymberoun.cz,4257,,
-19,Smrčinová Tereza,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, tereza_smrcinova@student.gymberoun.cz,9928,,
-20,Strejčková Nela,,,,,,N,,,,,,,,,,,,,,,0,0%,0,00,0,00,0,00,,, nela_strejckova@student.gymberoun.cz,7873,,
-21,Suchopárová Adéla,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, adela_suchoparova@student.gymberoun.cz,4611,,
-22,Tarant Tomáš,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, tomas_tarant@student.gymberoun.cz,8359,,
-23,Tauferová Natálie,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1, natalie_tauferova@student.gymberoun.cz,5557,,
-24,Tuček Matěj,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, matej_tucek@student.gymberoun.cz,1106,,
-25,Vasserbauer Katrin,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3, katrin_vasserbauer@student.gymberoun.cz,3615,,
-26,Večerníková Tereza,,,,,,N,,,,,,,,,,,,,,,0,0%,0,00,0,00,0,00,,, tereza_vecernikova@student.gymberoun.cz,7924,,
-27,Veselá Karolína,,,,,,4,,,,,,4,00,,,,,,,,,0,0%,0,00,0,00,0,00,4,00,4, karolina_vesela@student.gymberoun.cz,6574,,
-28,Vyskočil Václav,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1, vaclav_vyskocil@student.gymberoun.cz,5552,,
-29,Zítková Barbora,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1, barbora_zitkova@student.gymberoun.cz,3547,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-37,LEGENDA A PRAVIDLA:,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-38,Pokud student neudělal žádné PL:,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-39,• Celkový bonus = 0,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-40,• Finální průměr = Vážený průměr (bez bonusů),,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-41,• Známka se normálně vypočítá,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-47,Bonusy z praktických listů (8 PL):,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-48,• 90-100%: -0.25,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-,• 75-89%: -0.15,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,• 60-74%: -0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,až od třetího odevzdaného a hodnoceného,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,Bonus za konzistenci:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,• Odevzdáš 75% PL → extra -0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-`;
+        // Data jsou už připravená jako JSON (ne CSV string)
+        const students = [{"Poř. č.": "1", "Jméno a Příjmení": "Baxa David", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "david_baxa@student.gymberoun.cz", "kody": "2824", "": ""}, {"Poř. č.": "2", "Jméno a Příjmení": "Bureš Šimon", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "1,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "1,00", "ZNÁMKA": "1", "email": "simon_bures@student.gymberoun.cz", "kody": "1409", "": ""}, {"Poř. č.": "3", "Jméno a Příjmení": "Cenknerová Eva", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "eva_cenknerova@student.gymberoun.cz", "kody": "5506", "": ""}, {"Poř. č.": "4", "Jméno a Příjmení": "Čedroňová Tereza", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "tereza_cedronova@student.gymberoun.cz", "kody": "5012", "": ""}, {"Poř. č.": "5", "Jméno a Příjmení": "Havlová Ivana", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "2", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "2,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "2,00", "ZNÁMKA": "2", "email": "ivana_havlova@student.gymberoun.cz", "kody": "4657", "": ""}, {"Poř. č.": "6", "Jméno a Příjmení": "Hujerová Patricie", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "patricie_hujerova@student.gymberoun.cz", "kody": "3286", "": ""}, {"Poř. č.": "7", "Jméno a Příjmení": "Iraheta Carmen", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "", "ZNÁMKA": "", "email": "carmen_iraheta@student.gymberoun.cz", "kody": "2679", "": ""}, {"Poř. č.": "8", "Jméno a Příjmení": "Jandová Sofie Anna", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "", "ZNÁMKA": "", "email": "sofie-anna_jandova@student.gymberoun.cz", "kody": "9935", "": ""}, {"Poř. č.": "9", "Jméno a Příjmení": "Kermesová Anna", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "1,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "1,00", "ZNÁMKA": "1", "email": "anna_kermesova@student.gymberoun.cz", "kody": "2424", "": ""}, {"Poř. č.": "10", "Jméno a Příjmení": "Koza Tomáš", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "tomas_koza@student.gymberoun.cz", "kody": "7912", "": ""}, {"Poř. č.": "11", "Jméno a Příjmení": "Lejtnarová Iva", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "2", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "2,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "2,00", "ZNÁMKA": "2", "email": "iva_lejtnarova@student.gymberoun.cz", "kody": "1520", "": ""}, {"Poř. č.": "12", "Jméno a Příjmení": "Macíková Anna", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "anna_macikova@student.gymberoun.cz", "kody": "1488", "": ""}, {"Poř. č.": "13", "Jméno a Příjmení": "Musiol Kryštof", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "1,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "1,00", "ZNÁMKA": "1", "email": "krystof_musiol@student.gymberoun.cz", "kody": "2535", "": ""}, {"Poř. č.": "14", "Jméno a Příjmení": "Pánková Anna", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "4", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "4,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "4,00", "ZNÁMKA": "4", "email": "anna_pankova@student.gymberoun.cz", "kody": "4582", "": ""}, {"Poř. č.": "15", "Jméno a Příjmení": "Peroutka Vít", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "vit_peroutka@student.gymberoun.cz", "kody": "4811", "": ""}, {"Poř. č.": "16", "Jméno a Příjmení": "Režňáková Lucie", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "", "ZNÁMKA": "", "email": "lucie_reznakova@student.gymberoun.cz", "kody": "9279", "": ""}, {"Poř. č.": "17", "Jméno a Příjmení": "Řepík Ondřej", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "2", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "2,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "2,00", "ZNÁMKA": "2", "email": "ondrej_repik@student.gymberoun.cz", "kody": "1434", "": ""}, {"Poř. č.": "18", "Jméno a Příjmení": "Říhová Adriana", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "1,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "1,00", "ZNÁMKA": "1", "email": "adriana_rihova@student.gymberoun.cz", "kody": "4257", "": ""}, {"Poř. č.": "19", "Jméno a Příjmení": "Smrčinová Tereza", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "tereza_smrcinova@student.gymberoun.cz", "kody": "9928", "": ""}, {"Poř. č.": "20", "Jméno a Příjmení": "Strejčková Nela", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "", "ZNÁMKA": "", "email": "nela_strejckova@student.gymberoun.cz", "kody": "7873", "": ""}, {"Poř. č.": "21", "Jméno a Příjmení": "Suchopárová Adéla", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "adela_suchoparova@student.gymberoun.cz", "kody": "4611", "": ""}, {"Poř. č.": "22", "Jméno a Příjmení": "Tarant Tomáš", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "tomas_tarant@student.gymberoun.cz", "kody": "8359", "": ""}, {"Poř. č.": "23", "Jméno a Příjmení": "Tauferová Natálie", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "1,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "1,00", "ZNÁMKA": "1", "email": "natalie_tauferova@student.gymberoun.cz", "kody": "5557", "": ""}, {"Poř. č.": "24", "Jméno a Příjmení": "Tuček Matěj", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "matej_tucek@student.gymberoun.cz", "kody": "1106", "": ""}, {"Poř. č.": "25", "Jméno a Příjmení": "Vasserbauer Katrin", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "3,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "3,00", "ZNÁMKA": "3", "email": "katrin_vasserbauer@student.gymberoun.cz", "kody": "3615", "": ""}, {"Poř. č.": "26", "Jméno a Příjmení": "Večerníková Tereza", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "", "ZNÁMKA": "", "email": "tereza_vecernikova@student.gymberoun.cz", "kody": "7924", "": ""}, {"Poř. č.": "27", "Jméno a Příjmení": "Veselá Karolína", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "4", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "4,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "4,00", "ZNÁMKA": "4", "email": "karolina_vesela@student.gymberoun.cz", "kody": "6574", "": ""}, {"Poř. č.": "28", "Jméno a Příjmení": "Vyskočil Václav", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "1,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "1,00", "ZNÁMKA": "1", "email": "vaclav_vyskocil@student.gymberoun.cz", "kody": "5552", "": ""}, {"Poř. č.": "29", "Jméno a Příjmení": "Zítková Barbora", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "1,00", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0%", "Průměr bonusů": "0,00", "Bonus 75%+": "0,00", "Celkový bonus": "0,00", "Finální průměr": "1,00", "ZNÁMKA": "1", "email": "barbora_zitkova@student.gymberoun.cz", "kody": "3547", "": ""}, {"Poř. č.": "37", "Jméno a Příjmení": "LEGENDA A PRAVIDLA:", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0", "Průměr bonusů": "0", "Bonus 75%+": "0", "Celkový bonus": "0", "Finální průměr": "", "ZNÁMKA": "", "email": "", "kody": "", "": ""}, {"Poř. č.": "38", "Jméno a Příjmení": "Pokud student neudělal žádné PL:", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0", "Průměr bonusů": "0", "Bonus 75%+": "0", "Celkový bonus": "0", "Finální průměr": "", "ZNÁMKA": "", "email": "", "kody": "", "": ""}, {"Poř. č.": "39", "Jméno a Příjmení": "• Celkový bonus = 0", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0", "Průměr bonusů": "0", "Bonus 75%+": "0", "Celkový bonus": "0", "Finální průměr": "", "ZNÁMKA": "", "email": "", "kody": "", "": ""}, {"Poř. č.": "40", "Jméno a Příjmení": "• Finální průměr = Vážený průměr (bez bonusů)", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0", "Průměr bonusů": "0", "Bonus 75%+": "0", "Celkový bonus": "0", "Finální průměr": "", "ZNÁMKA": "", "email": "", "kody": "", "": ""}, {"Poř. č.": "41", "Jméno a Příjmení": "• Známka se normálně vypočítá", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0", "Průměr bonusů": "0", "Bonus 75%+": "0", "Celkový bonus": "0", "Finální průměr": "", "ZNÁMKA": "", "email": "", "kody": "", "": ""}, {"Poř. č.": "47", "Jméno a Příjmení": "Bonusy z praktických listů (8 PL):", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0", "Průměr bonusů": "0", "Bonus 75%+": "0", "Celkový bonus": "0", "Finální průměr": "", "ZNÁMKA": "", "email": "", "kody": "", "": ""}, {"Poř. č.": "48", "Jméno a Příjmení": "• 90-100%: -0.25", "VT1": "", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "Vážený průměr": "", "PL1 (%)": "", "PL2 (%)": "", "PL3 (%)": "", "PL4 (%)": "", "PL5 (%)": "", "PL6 (%)": "", "PL7 (%)": "", "PL8 (%)": "", "Počet PL": "0", "% PL": "0", "Průměr bonusů": "0", "Bonus 75%+": "0", "Celkový bonus": "0", "Finální průměr": "", "ZNÁMKA": "", "email": "", "kody": "", "": ""}];
         const pinsMapping = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547"};
         
-        function parseCSV(csv) {
-            const lines = csv.trim().split('\n');
-            const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
-            const students = [];
-            for (let i = 1; i < lines.length; i++) {
-                const values = parseCSVLine(lines[i]);
-                if (values.length > 1) {
-                    const student = {};
-                    headers.forEach((header, index) => {
-                        student[header] = values[index] ? values[index].trim() : '';
-                    });
-                    students.push(student);
-                }
-            }
-            return students;
-        }
-        
-        function parseCSVLine(line) {
-            const result = [];
-            let current = '';
-            let inQuotes = false;
-            for (let char of line) {
-                if (char === '"') {
-                    inQuotes = !inQuotes;
-                } else if (char === ',' && !inQuotes) {
-                    result.push(current);
-                    current = '';
-                } else {
-                    current += char;
-                }
-            }
-            result.push(current);
-            return result;
-        }
-        
-        const students = parseCSV(csvData);
         const searchInput = document.getElementById('searchInput');
         const pinInput = document.getElementById('pinInput');
         const btnVerify = document.getElementById('btnVerify');
@@ -377,22 +271,27 @@
             const plContainer = document.getElementById('plGrades');
             plContainer.innerHTML = '';
             for (let i = 1; i <= 8; i++) {
-                // Zkusíme různé formáty názvů sloupců
-                let value = student[`PL${i} (%)`] || student[`PL${i}\n(%)`] || student[`PL${i}`];
+                const value = student[`PL${i} (%)`] || student[`PL${i}`] || '';
                 let colorClass = '';
-                if (value) {
-                    const numValue = parseFloat(value.replace(',', '.'));
+                
+                // Pokud je hodnota prázdná nebo "0%" nebo "00%" -> zobraz "—"
+                const isEmpty = !value || value === '0%' || value === '00%' || value === '0';
+                
+                if (!isEmpty && value) {
+                    const numValue = parseFloat(value.replace(',', '.').replace('%', ''));
                     if (numValue >= 90) colorClass = 'high';
                     else if (numValue >= 60) colorClass = 'medium';
                     else if (numValue > 0) colorClass = 'low';
                 }
-                plContainer.innerHTML += `<div class="pl-item"><div class="pl-label">PL${i}</div><div class="pl-value ${colorClass}">${value ? value + '%' : '—'}</div></div>`;
+                
+                const displayValue = isEmpty ? '—' : (value.includes('%') ? value : value + '%');
+                plContainer.innerHTML += `<div class="pl-item"><div class="pl-label">PL${i}</div><div class="pl-value ${colorClass}">${displayValue}</div></div>`;
             }
             
-            // Souhrn - OPRAVENO pro české názvy sloupců
-            const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
-            const finalniPrumer = student['Finální průměr'] || student['Finální\nprůměr'] || '';
-            const znamka = student['ZNÁMKA'] || student['Známka'] || '';
+            // Souhrn - s čištěním hodnot
+            const vazenyPrumer = student['Vážený průměr'] || '';
+            const finalniPrumer = student['Finální průměr'] || '';
+            const znamka = student['ZNÁMKA'] || '';
             
             document.getElementById('weightedAvg').textContent = vazenyPrumer || '—';
             document.getElementById('finalAvg').textContent = finalniPrumer || '—';

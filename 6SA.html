@@ -168,22 +168,7 @@
     </div>
     
     <script>
-        const csvData = `Poř. č.,Jméno Příjmení,VT1,VT2,VT3,VT4,VT5,MT1,MT2,MT3,MT4,MT5,LP,"Vážený
-průměr","PL1
-(%)","PL2
-(%)","PL3
-(%)","PL4
-(%)","PL5
-(%)","PL6
-(%)","PL7
-(%)","PL8
-(%)","Počet
-PL","%
-PL","Průměr
-bonusů","Bonus
-75%+","Celkový
-bonus","Finální
-průměr",ZNÁMKA,Email,KODY
+        const csvData = `Poř. č.,Jméno Příjmení,VT1,VT2,VT3,VT4,VT5,MT1,MT2,MT3,MT4,MT5,LP,"Vážený průměr","PL1 (%)","PL2 (%)","PL3 (%)","PL4 (%)","PL5 (%)","PL6 (%)","PL7 (%)","PL8 (%)","Počet PL","% PL","Průměr bonusů","Bonus 75%+","Celkový bonus","Finální průměr",ZNÁMKA,Email,KODY
 1,Ivana Denková,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,ivana_denkova@student.gymberoun.cz,1747
 2,Jakub Dolejš,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3,jakub_dolejs@student.gymberoun.cz,4333
 3,Kryštof Doležal,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,krystof_dolezal@student.gymberoun.cz,1497
@@ -350,6 +335,7 @@ průměr",ZNÁMKA,Email,KODY
         function displayStudent(student, fullName) {
             document.getElementById('studentName').textContent = fullName;
             
+            // Velké testy
             const vtContainer = document.getElementById('vtGrades');
             vtContainer.innerHTML = '';
             for (let i = 1; i <= 5; i++) {
@@ -357,6 +343,7 @@ průměr",ZNÁMKA,Email,KODY
                 vtContainer.innerHTML += `<div class="grade-item"><div class="grade-label">VT${i}</div><div class="grade-value ${value ? '' : 'empty'}">${value || '—'}</div></div>`;
             }
             
+            // Malé testy
             const mtContainer = document.getElementById('mtGrades');
             mtContainer.innerHTML = '';
             for (let i = 1; i <= 5; i++) {
@@ -364,18 +351,21 @@ průměr",ZNÁMKA,Email,KODY
                 mtContainer.innerHTML += `<div class="grade-item"><div class="grade-label">MT${i}</div><div class="grade-value ${value ? '' : 'empty'}">${value || '—'}</div></div>`;
             }
             
+            // Laboratorní práce
             const lpContainer = document.getElementById('lpGrade');
             lpContainer.innerHTML = '';
             const lpValue = student['LP'];
             lpContainer.innerHTML += `<div class="grade-item"><div class="grade-label">LP</div><div class="grade-value ${lpValue ? '' : 'empty'}">${lpValue || '—'}</div></div>`;
             
+            // Praktické listy
             const plContainer = document.getElementById('plGrades');
             plContainer.innerHTML = '';
             for (let i = 1; i <= 8; i++) {
-                let value = student[`PL${i}\n(%)`] || student[`PL${i} (%)`] || student[`PL${i}`];
+                // Zkusíme různé formáty názvů sloupců
+                let value = student[`PL${i} (%)`] || student[`PL${i}\n(%)`] || student[`PL${i}`];
                 let colorClass = '';
                 if (value) {
-                    const numValue = parseFloat(value);
+                    const numValue = parseFloat(value.replace(',', '.'));
                     if (numValue >= 90) colorClass = 'high';
                     else if (numValue >= 60) colorClass = 'medium';
                     else if (numValue > 0) colorClass = 'low';
@@ -383,9 +373,14 @@ průměr",ZNÁMKA,Email,KODY
                 plContainer.innerHTML += `<div class="pl-item"><div class="pl-label">PL${i}</div><div class="pl-value ${colorClass}">${value ? value + '%' : '—'}</div></div>`;
             }
             
-            document.getElementById('weightedAvg').textContent = student['Vážený\nprůměr'] || student['Vážený průměr'] || '—';
-            document.getElementById('finalAvg').textContent = student['Finální\nprůměr'] || student['Finální průměr'] || '—';
-            document.getElementById('grade').textContent = student['ZNÁMKA'] || student['Známka'] || '—';
+            // Souhrn - OPRAVENO pro české názvy sloupců
+            const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
+            const finalniPrumer = student['Finální průměr'] || student['Finální\nprůměr'] || '';
+            const znamka = student['ZNÁMKA'] || student['Známka'] || '';
+            
+            document.getElementById('weightedAvg').textContent = vazenyPrumer || '—';
+            document.getElementById('finalAvg').textContent = finalniPrumer || '—';
+            document.getElementById('grade').textContent = znamka || '—';
         }
     </script>
 </body>

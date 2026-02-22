@@ -255,7 +255,7 @@ průměr",ZNÁMKA,email,kody,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 `;
-        const pinsMapping = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547"};
+        const pinsMapping = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547"}};
         
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');
@@ -388,12 +388,12 @@ průměr",ZNÁMKA,email,kody,,
             const lpValue = student['LP'];
             lpContainer.innerHTML += `<div class="grade-item"><div class="grade-label">LP</div><div class="grade-value ${lpValue ? '' : 'empty'}">${lpValue || '—'}</div></div>`;
             
-            // Praktické listy - OPRAVENO
+            // Praktické listy
             const plContainer = document.getElementById('plGrades');
             plContainer.innerHTML = '';
             for (let i = 1; i <= 8; i++) {
-                // Hledáme sloupec který obsahuje PLi a (%)
-                let value = student[`PL${i} (%)`] || '';
+                // Zkusíme různé formáty názvů sloupců
+                let value = student[`PL${i} (%)`] || student[`PL${i}\n(%)`] || student[`PL${i}`];
                 let colorClass = '';
                 if (value) {
                     const numValue = parseFloat(value.replace(',', '.'));
@@ -404,10 +404,10 @@ průměr",ZNÁMKA,email,kody,,
                 plContainer.innerHTML += `<div class="pl-item"><div class="pl-label">PL${i}</div><div class="pl-value ${colorClass}">${value ? value + '%' : '—'}</div></div>`;
             }
             
-            // Souhrn - OPRAVENO
-            const vazenyPrumer = student['Vážený průměr'] || '';
-            const finalniPrumer = student['Finální průměr'] || '';
-            const znamka = student['ZNÁMKA'] || '';
+            // Souhrn - OPRAVENO pro české názvy sloupců
+            const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
+            const finalniPrumer = student['Finální průměr'] || student['Finální\nprůměr'] || '';
+            const znamka = student['ZNÁMKA'] || student['Známka'] || '';
             
             document.getElementById('weightedAvg').textContent = vazenyPrumer || '—';
             document.getElementById('finalAvg').textContent = finalniPrumer || '—';

@@ -168,23 +168,8 @@
     </div>
     
     <script>
-        const csvData = `Poř. č.,Příjmení,VT1,VT2,VT3,VT4,VT5,MT1,MT2,MT3,MT4,MT5,LP,"Vážený
-průměr","PL1
-(%)","PL2
-(%)","PL3
-(%)","PL4
-(%)","PL5
-(%)","PL6
-(%)","PL7
-(%)","PL8
-(%)","Počet
-PL","%
-PL","Průměr
-bonusů","Bonus
-75%+","Celkový
-bonus","Finální
-průměr",ZNÁMKA,email,PIN,,,
-1,Julie Andielová,,,,,,1,,,,,,1,00,100,,,,,,,,1,13%,0,00,0,00,0,00,1,00,1,julie_andielova@student.gymberoun.cz,3386,,,
+        const csvData = `Poř. č.,Příjmení,VT1,VT2,VT3,VT4,VT5,MT1,MT2,MT3,MT4,MT5,LP,"Vážený průměr","PL1 (%)","PL2 (%)","PL3 (%)","PL4 (%)","PL5 (%)","PL6 (%)","PL7 (%)","PL8 (%)","Počet PL","% PL","Průměr bonusů","Bonus 75%+","Celkový bonus","Finální průměr",ZNÁMKA,email,PIN,,,
+1,Julie Andielová,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,julie_andielova@student.gymberoun.cz,3386,,,
 2,Jan Bartek,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,jan_bartek@student.gymberoun.cz,8528,,,
 3,Ondřej Bielčik,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3,ondrej_bielcik@student.gymberoun.cz,8453,,,
 4,Barbora Bohátková,,,,,,N,,,,,,,,,,,,,,,0,0%,0,00,0,00,0,00,,,barbora_bohatkova@student.gymberoun.cz,3863,,,
@@ -194,24 +179,24 @@ průměr",ZNÁMKA,email,PIN,,,
 8,Albert Jeránek,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,albert_jeranek@student.gymberoun.cz,9304,,,
 9,Tobiáš Kaplan,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3,tobias_kaplan@student.gymberoun.cz,2801,,,
 10,Karolína Keprtová,,,,,,4,,,,,,4,00,,,,,,,,,0,0%,0,00,0,00,0,00,4,00,4,karolina_keprtova@student.gymberoun.cz,9731,,,
-11,Jáchym Kolman,,,,,,1,,,,,,1,00,100,,,,,,,,1,13%,0,00,0,00,0,00,1,00,1,jachym_kolman@student.gymberoun.cz,2987,,,
+11,Jáchym Kolman,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,jachym_kolman@student.gymberoun.cz,2987,,,
 12,Lukáš Konvalinka,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,lukas_konvalinka@student.gymberoun.cz,2313,,,
 13,Jakub Máca,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,jakub_maca@student.gymberoun.cz,8470,,,
-14,Barbora Meszárošová,,,,,,1,,,,,,1,00,98,,,,,,,,1,13%,0,00,0,00,0,00,1,00,1,barbora_meszarosova@student.gymberoun.cz,5315,,,
-15,Jarmila Mutlová,,,,,,N,,,,,,,100,,,,,,,,1,13%,0,00,0,00,0,00,,,jarmila_mutlova@student.gymberoun.cz,1784,,,
+14,Barbora Meszárošová,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,barbora_meszarosova@student.gymberoun.cz,5315,,,
+15,Jarmila Mutlová,,,,,,N,,,,,,,,,,,,,,,0,0%,0,00,0,00,0,00,,,jarmila_mutlova@student.gymberoun.cz,1784,,,
 16,Michal Polovinčák,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,michal_polovincak@student.gymberoun.cz,4350,,,
-17,Marie Povolná,,,,,,1,,,,,,1,00,96,,,,,,,,1,13%,0,00,0,00,0,00,1,00,1,marie_povolna@student.gymberoun.cz,6494,,,
-18,Jan Rúta,,,,,,2,,,,,,2,00,98,,,,,,,,1,13%,0,00,0,00,0,00,2,00,2,jan_ruta@student.gymberoun.cz,4763,,,
+17,Marie Povolná,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,marie_povolna@student.gymberoun.cz,6494,,,
+18,Jan Rúta,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,jan_ruta@student.gymberoun.cz,4763,,,
 19,Dominik Svatoš,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,dominik_svatos@student.gymberoun.cz,6069,,,
-20,Kryštof Svoboda,,,,,,2,,,,,,2,00,98,,,,,,,,1,13%,0,00,0,00,0,00,2,00,2,krystof_svoboda@student.gymberoun.cz,4340,,,
-21,Adéla Silhava,,,,,,1,,,,,,1,00,100,,,,,,,,1,13%,0,00,0,00,0,00,1,00,1,adela_silhava@student.gymberoun.cz,3923,,,
+20,Kryštof Svoboda,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,krystof_svoboda@student.gymberoun.cz,4340,,,
+21,Adéla Silhava,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,adela_silhava@student.gymberoun.cz,3923,,,
 22,Václav Šopík,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,vaclav_sopik@student.gymberoun.cz,3307,,,
 23,Lukáš Tóth,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,lukas_toth@student.gymberoun.cz,4089,,,
-24,Daniela Turková,,,,,,2,,,,,,2,00,99,,,,,,,,1,13%,0,00,0,00,0,00,2,00,2,daniela_turkova@student.gymberoun.cz,6685,,,
-25,Barbora Vaňková,,,,,,2,,,,,,2,00,100,,,,,,,,1,13%,0,00,0,00,0,00,2,00,2,barbora_vankova@student.gymberoun.cz,7063,,,
+24,Daniela Turková,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,daniela_turkova@student.gymberoun.cz,6685,,,
+25,Barbora Vaňková,,,,,,2,,,,,,2,00,,,,,,,,,0,0%,0,00,0,00,0,00,2,00,2,barbora_vankova@student.gymberoun.cz,7063,,,
 26,Štěpánka Voldánová,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,stepanka_voldanova@student.gymberoun.cz,7712,,,
-27,Anna Vrbská,,,,,,1,,,,,,1,00,99,,,,,,,,1,13%,0,00,0,00,0,00,1,00,1,anna_vrbska@student.gymberoun.cz,4454,,,
-28,Robert Zoch,,,,,,3,,,,,,3,00,96,,,,,,,,1,13%,0,00,0,00,0,00,3,00,3,robert_zoch@student.gymberoun.cz,7603,,,
+27,Anna Vrbská,,,,,,1,,,,,,1,00,,,,,,,,,0,0%,0,00,0,00,0,00,1,00,1,anna_vrbska@student.gymberoun.cz,4454,,,
+28,Robert Zoch,,,,,,3,,,,,,3,00,,,,,,,,,0,0%,0,00,0,00,0,00,3,00,3,robert_zoch@student.gymberoun.cz,7603,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 37,LEGENDA A PRAVIDLA:,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,
 38,Pokud student neudělal žádné PL:,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,
@@ -231,7 +216,7 @@ průměr",ZNÁMKA,email,PIN,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 `;
-        const pinsMapping = {"julie andielová": "3386", "jan bartek": "8528", "ondřej bielčik": "8453", "barbora bohátková": "3863", "aleksander bořil": "7439", "kateřina brodecká": "6730", "olívie janušková": "8102", "albert jeránek": "9304", "tobiáš kaplan": "2801", "karolína keprtová": "9731", "jáchym kolman": "2987", "lukáš konvalinka": "2313", "jakub máca": "8470", "barbora meszárošová": "5315", "jarmila mutlová": "1784", "michal polovinčák": "4350", "marie povolná": "6494", "jan rúta": "4763", "dominik svatoš": "6069", "kryštof svoboda": "4340", "adéla silhava": "3923", "václav šopík": "3307", "lukáš tóth": "4089", "daniela turková": "6685", "barbora vaňková": "7063", "štěpánka voldánová": "7712", "anna vrbská": "4454", "robert zoch": "7603"}};
+        const pinsMapping = {"julie andielová": "3386", "jan bartek": "8528", "ondřej bielčik": "8453", "barbora bohátková": "3863", "aleksander bořil": "7439", "kateřina brodecká": "6730", "olívie janušková": "8102", "albert jeránek": "9304", "tobiáš kaplan": "2801", "karolína keprtová": "9731", "jáchym kolman": "2987", "lukáš konvalinka": "2313", "jakub máca": "8470", "barbora meszárošová": "5315", "jarmila mutlová": "1784", "michal polovinčák": "4350", "marie povolná": "6494", "jan rúta": "4763", "dominik svatoš": "6069", "kryštof svoboda": "4340", "adéla silhava": "3923", "václav šopík": "3307", "lukáš tóth": "4089", "daniela turková": "6685", "barbora vaňková": "7063", "štěpánka voldánová": "7712", "anna vrbská": "4454", "robert zoch": "7603"};
         
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');

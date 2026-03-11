@@ -125,7 +125,7 @@
             <div class="error-message" id="errorMessage">❌ Špatné příjmení nebo PIN!</div>
             
             <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
-                <a href="index.html" style="color: #667eea; text-decoration: none; font-size: 0.95em; transition: color 0.3s;">
+                <a href="index.html" style="color: #667eea; text-decoration: none; font-size: 0.95em;">
                     ← Zpět na výběr třídy
                 </a>
             </div>
@@ -159,6 +159,10 @@
                     <div class="summary-value" id="finalAvg">-</div>
                 </div>
                 <div class="summary-item">
+                    <div class="summary-label">Celkový bonus</div>
+                    <div class="summary-value" id="bonusVal">-</div>
+                </div>
+                <div class="summary-item">
                     <div class="summary-label">Známka</div>
                     <div class="summary-value" id="grade">-</div>
                 </div>
@@ -168,235 +172,100 @@
     </div>
     
     <script>
-        const csvData = `Poř. č.,Jméno a Příjmení,VT1,VT2,VT3,VT4,VT5,MT1,MT2,MT3,MT4,MT5,LP,Vážený průměr,PL1 (%),PL2 (%),PL3 (%),PL4 (%),PL5 (%),PL6 (%),PL7 (%),PL8 (%),Počet PL,% PL,Průměr bonusů,Bonus 75%+,Celkový bonus,Finální průměr,ZNÁMKA,email,kody,,
-1,Baxa David,3,,,,,3,,,,,,3,,,,,,,,,0,0,0,0,0,3,3, david_baxa@student.gymberoun.cz,2824,,
-2,Bureš Šimon,2,,,,,1,,,,,,1.6,97,,,,,,,,1,0.125,0,0,0,1.6,2, simon_bures@student.gymberoun.cz,1409,,
-3,Cenknerová Eva,2,,,,,3,,,,,,2.4,95,,,,,,,,1,0.125,0,0,0,2.4,2, eva_cenknerova@student.gymberoun.cz,5506,,
-4,Čedroňová Tereza,3,,,,,3,,,,,,3,94,,,,,,,,1,0.125,0,0,0,3,3, tereza_cedronova@student.gymberoun.cz,5012,,
-5,Havlová Ivana,2,,,,,2,,,,,,2,95,,,,,,,,1,0.125,0,0,0,2,2,ivana_havlova@student.gymberoun.cz,4657,,
-6,Hujerová Patricie,3,,,,,3,,,,,,3,100,,,,,,,,1,0.125,0,0,0,3,3, patricie_hujerova@student.gymberoun.cz,3286,,
-7,Iraheta Carmen,1,,,,,N,,,,,,1,100,,,,,,,,1,0.125,0,0,0,1,1,carmen_iraheta@student.gymberoun.cz,2679,,
-8,Jandová Sofie Anna,1,,,,,N,,,,,,1,82,,,,,,,,1,0.125,0,0,0,1,1, sofie-anna_jandova@student.gymberoun.cz,9935,,
-9,Kermesová Anna,2,,,,,1,,,,,,1.6,,,,,,,,,0,0,0,0,0,1.6,2, anna_kermesova@student.gymberoun.cz,2424,,
-10,Koza Tomáš,4,,,,,3,,,,,,3.6,,,,,,,,,0,0,0,0,0,3.6,4, tomas_koza@student.gymberoun.cz,7912,,
-11,Lejtnarová Iva,2,,,,,2,,,,,,2,,,,,,,,,0,0,0,0,0,2,2, iva_lejtnarova@student.gymberoun.cz,1520,,
-12,Macíková Anna,2,,,,,3,,,,,,2.4,,,,,,,,,0,0,0,0,0,2.4,2, anna_macikova@student.gymberoun.cz,1488,,
-13,Musiol Kryštof,2,,,,,1,,,,,,1.6,90,,,,,,,,1,0.125,0,0,0,1.6,2, krystof_musiol@student.gymberoun.cz,2535,,
-14,Pánková Anna,3,,,,,4,,,,,,3.4,88,,,,,,,,1,0.125,0,0,0,3.4,3, anna_pankova@student.gymberoun.cz,4582,,
-15,Peroutka Vít,2,,,,,3,,,,,,2.4,,,,,,,,,0,0,0,0,0,2.4,2, vit_peroutka@student.gymberoun.cz,4811,,
-16,Režňáková Lucie,3,,,,,N,,,,,,3,,,,,,,,,0,0,0,0,0,3,3,lucie_reznakova@student.gymberoun.cz,9279,,
-17,Řepík Ondřej,1,,,,,2,,,,,,1.4,,,,,,,,,0,0,0,0,0,1.4,1, ondrej_repik@student.gymberoun.cz,1434,,
-18,Říhová Adriana,2,,,,,1,,,,,,1.6,,,,,,,,,0,0,0,0,0,1.6,2,adriana_rihova@student.gymberoun.cz,4257,,
-19,Smrčinová Tereza,2,,,,,3,,,,,,2.4,92,,,,,,,,1,0.125,0,0,0,2.4,2, tereza_smrcinova@student.gymberoun.cz,9928,,
-20,Strejčková Nela,1,,,,,N,,,,,,1,96,,,,,,,,1,0.125,0,0,0,1,1, nela_strejckova@student.gymberoun.cz,7873,,
-21,Suchopárová Adéla,2,,,,,3,,,,,,2.4,,,,,,,,,0,0,0,0,0,2.4,2, adela_suchoparova@student.gymberoun.cz,4611,,
-22,Tarant Tomáš,1,,,,,3,,,,,,1.8,,,,,,,,,0,0,0,0,0,1.8,2, tomas_tarant@student.gymberoun.cz,8359,,
-23,Tauferová Natálie,N,,,,,1,,,,,,1,92,,,,,,,,1,0.125,0,0,0,1,1, natalie_tauferova@student.gymberoun.cz,5557,,
-24,Tuček Matěj,2,,,,,3,,,,,,2.4,,,,,,,,,0,0,0,0,0,2.4,2, matej_tucek@student.gymberoun.cz,1106,,
-25,Vasserbauer Katrin,1,,,,,3,,,,,,1.8,82,,,,,,,,1,0.125,0,0,0,1.8,2, katrin_vasserbauer@student.gymberoun.cz,3615,,
-26,Večerníková Tereza,2,,,,,N,,,,,,2,82,,,,,,,,1,0.125,0,0,0,2,2, tereza_vecernikova@student.gymberoun.cz,7924,,
-27,Veselá Karolína,4,,,,,4,,,,,,4,,,,,,,,,0,0,0,0,0,4,4, karolina_vesela@student.gymberoun.cz,6574,,
-28,Vyskočil Václav,1,,,,,1,,,,,,1,100,,,,,,,,1,0.125,0,0,0,1,1, vaclav_vyskocil@student.gymberoun.cz,5552,,
-29,Zítková Barbora,1,,,,,1,,,,,,1,91,,,,,,,,1,0.125,0,0,0,1,1, barbora_zitkova@student.gymberoun.cz,3547,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-37,LEGENDA A PRAVIDLA:,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-38,Pokud student neudělal žádné PL:,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-39,• Celkový bonus = 0,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-40,• Finální průměr = Vážený průměr (bez bonusů),,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-41,• Známka se normálně vypočítá,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-47,Bonusy z praktických listů (8 PL):,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-48,• 90-100%: -0.25,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,
-,• 75-89%: -0.15,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,• 60-74%: -0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,až od třetího odevzdaného a hodnoceného,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,Bonus za konzistenci:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,• Odevzdáš 75% PL → extra -0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-`;
-        const pinsMapping = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547", "• celkový bonus = 0": "4527", "• finální průměr = vážený průměr (bez bonusů)": "6514"};
-        
-        function parseCSV(csv) {
-            const lines = csv.trim().split('\n');
-            const headers = lines[0].split(',').map(h => h.trim().replace(/"/g, ''));
-            const students = [];
-            for (let i = 1; i < lines.length; i++) {
-                const values = parseCSVLine(lines[i]);
-                if (values.length > 1) {
-                    const student = {};
-                    headers.forEach((header, index) => {
-                        student[header] = values[index] ? values[index].trim() : '';
-                    });
-                    students.push(student);
-                }
-            }
-            return students;
-        }
-        
-        function parseCSVLine(line) {
-            const result = [];
-            let current = '';
-            let inQuotes = false;
-            for (let char of line) {
-                if (char === '"') {
-                    inQuotes = !inQuotes;
-                } else if (char === ',' && !inQuotes) {
-                    result.push(current);
-                    current = '';
-                } else {
-                    current += char;
-                }
-            }
-            result.push(current);
-            return result;
-        }
-        
-        const students = parseCSV(csvData);
+        const STUDENTS = [{"num": "1", "name": "Baxa David", "VT1": "3", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "3", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "3", "znamka": "3"}, {"num": "2", "name": "Bureš Šimon", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1.6", "PL1": "97", "PL2": "98", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "1.6", "znamka": "2"}, {"num": "3", "name": "Cenknerová Eva", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2.4", "PL1": "95", "PL2": "98", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "2.4", "znamka": "2"}, {"num": "4", "name": "Čedroňová Tereza", "VT1": "3", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "3", "PL1": "94", "PL2": "98", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "3", "znamka": "3"}, {"num": "5", "name": "Havlová Ivana", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "2", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2", "PL1": "95", "PL2": "100", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "2", "znamka": "2"}, {"num": "6", "name": "Hujerová Patricie", "VT1": "3", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "3", "PL1": "100", "PL2": "100", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "3", "znamka": "3"}, {"num": "7", "name": "Iraheta Carmen", "VT1": "1", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1", "PL1": "100", "PL2": "99", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "1", "znamka": "1"}, {"num": "8", "name": "Jandová Sofie Anna", "VT1": "1", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1", "PL1": "82", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "1", "bonus": "0", "final": "1", "znamka": "1"}, {"num": "9", "name": "Kermesová Anna", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1.6", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "1.6", "znamka": "2"}, {"num": "10", "name": "Koza Tomáš", "VT1": "4", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "3.6", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "3.6", "znamka": "4"}, {"num": "11", "name": "Lejtnarová Iva", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "2", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "2", "znamka": "2"}, {"num": "12", "name": "Macíková Anna", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2.4", "PL1": "", "PL2": "99", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "1", "bonus": "0", "final": "2.4", "znamka": "2"}, {"num": "13", "name": "Musiol Kryštof", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1.6", "PL1": "90", "PL2": "95", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "1.6", "znamka": "2"}, {"num": "14", "name": "Pánková Anna", "VT1": "3", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "4", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "3.4", "PL1": "88", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "1", "bonus": "0", "final": "3.4", "znamka": "3"}, {"num": "15", "name": "Peroutka Vít", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2.4", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "2.4", "znamka": "2"}, {"num": "16", "name": "Režňáková Lucie", "VT1": "3", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "3", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "3", "znamka": "3"}, {"num": "17", "name": "Řepík Ondřej", "VT1": "1", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "2", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1.4", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "1.4", "znamka": "1"}, {"num": "18", "name": "Říhová Adriana", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1.6", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "1.6", "znamka": "2"}, {"num": "19", "name": "Smrčinová Tereza", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2.4", "PL1": "92", "PL2": "99", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "2.4", "znamka": "2"}, {"num": "20", "name": "Strejčková Nela", "VT1": "1", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1", "PL1": "96", "PL2": "100", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "1", "znamka": "1"}, {"num": "21", "name": "Suchopárová Adéla", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2.4", "PL1": "", "PL2": "100", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "1", "bonus": "0", "final": "2.4", "znamka": "2"}, {"num": "22", "name": "Tarant Tomáš", "VT1": "1", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1.8", "PL1": "", "PL2": "97", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "1", "bonus": "0", "final": "1.8", "znamka": "2"}, {"num": "23", "name": "Tauferová Natálie", "VT1": "N", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1", "PL1": "92", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "1", "bonus": "0", "final": "1", "znamka": "1"}, {"num": "24", "name": "Tuček Matěj", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2.4", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "2.4", "znamka": "2"}, {"num": "25", "name": "Vasserbauer Katrin", "VT1": "1", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "3", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1.8", "PL1": "82", "PL2": "96", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "1.8", "znamka": "2"}, {"num": "26", "name": "Večerníková Tereza", "VT1": "2", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "N", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "2", "PL1": "82", "PL2": "99", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "2", "znamka": "2"}, {"num": "27", "name": "Veselá Karolína", "VT1": "4", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "4", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "4", "PL1": "", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "0", "bonus": "0", "final": "4", "znamka": "4"}, {"num": "28", "name": "Vyskočil Václav", "VT1": "1", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1", "PL1": "100", "PL2": "98", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "2", "bonus": "0", "final": "1", "znamka": "1"}, {"num": "29", "name": "Zítková Barbora", "VT1": "1", "VT2": "", "VT3": "", "VT4": "", "VT5": "", "MT1": "1", "MT2": "", "MT3": "", "MT4": "", "MT5": "", "LP": "", "vazeny": "1", "PL1": "91", "PL2": "", "PL3": "", "PL4": "", "PL5": "", "PL6": "", "PL7": "", "PL8": "", "pocetPL": "1", "bonus": "0", "final": "1", "znamka": "1"}];
+        const PINS = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547"};
+
         const searchInput = document.getElementById('searchInput');
-        const pinInput = document.getElementById('pinInput');
-        const btnVerify = document.getElementById('btnVerify');
-        const errorMessage = document.getElementById('errorMessage');
-        const loginBox = document.getElementById('loginBox');
-        const results = document.getElementById('results');
-        const btnLogout = document.getElementById('btnLogout');
-        
-        pinInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') btnVerify.click();
-        });
-        
-        btnVerify.addEventListener('click', function() {
-            const prijmeni = searchInput.value.trim().toLowerCase();
-            const pin = pinInput.value.trim();
-            errorMessage.classList.remove('show');
-            
-            if (!prijmeni || !pin) {
-                showError();
-                return;
-            }
-            
-            const found = students.find(s => {
-                const nameFields = ['Jméno a Příjmení', 'Příjmení', 'Jméno Příjmení'];
-                for (let field of nameFields) {
-                    const name = (s[field] || '').toLowerCase();
-                    if (name.includes(prijmeni)) return true;
-                }
-                return false;
-            });
-            
-            if (!found) {
-                showError();
-                return;
-            }
-            
-            let fullName = '';
-            const nameFields = ['Jméno a Příjmení', 'Příjmení', 'Jméno Příjmení'];
-            for (let field of nameFields) {
-                if (found[field]) {
-                    fullName = found[field];
-                    break;
-                }
-            }
-            
-            const correctPin = pinsMapping[fullName.toLowerCase()];
-            if (pin !== correctPin) {
-                showError();
-                return;
-            }
-            
-            displayStudent(found, fullName);
+        const pinInput    = document.getElementById('pinInput');
+        const btnVerify   = document.getElementById('btnVerify');
+        const errorMsg    = document.getElementById('errorMessage');
+        const loginBox    = document.getElementById('loginBox');
+        const results     = document.getElementById('results');
+        const btnLogout   = document.getElementById('btnLogout');
+
+        pinInput.addEventListener('keypress', e => { if (e.key === 'Enter') btnVerify.click(); });
+        searchInput.addEventListener('keypress', e => { if (e.key === 'Enter') btnVerify.click(); });
+
+        btnVerify.addEventListener('click', function () {
+            const query = searchInput.value.trim().toLowerCase();
+            const pin   = pinInput.value.trim();
+            errorMsg.classList.remove('show');
+
+            if (!query || !pin) { showError(); return; }
+
+            const student = STUDENTS.find(s =>
+                s.name.toLowerCase().includes(query)
+            );
+            if (!student) { showError(); return; }
+
+            const correctPin = PINS[student.name.toLowerCase()];
+            if (pin !== correctPin) { showError(); return; }
+
+            displayStudent(student);
             loginBox.classList.add('hidden');
             results.classList.add('show');
         });
-        
-        btnLogout.addEventListener('click', function() {
+
+        btnLogout.addEventListener('click', function () {
             results.classList.remove('show');
             loginBox.classList.remove('hidden');
             searchInput.value = '';
             pinInput.value = '';
-            errorMessage.classList.remove('show');
+            errorMsg.classList.remove('show');
         });
-        
+
         function showError() {
-            errorMessage.classList.add('show');
+            errorMsg.classList.add('show');
             pinInput.value = '';
             pinInput.focus();
         }
-        
-        function displayStudent(student, fullName) {
-            document.getElementById('studentName').textContent = fullName;
-            
-            // Velké testy
-            const vtContainer = document.getElementById('vtGrades');
-            vtContainer.innerHTML = '';
-            for (let i = 1; i <= 5; i++) {
-                const value = student[`VT${i}`];
-                vtContainer.innerHTML += `<div class="grade-item"><div class="grade-label">VT${i}</div><div class="grade-value ${value ? '' : 'empty'}">${value || '—'}</div></div>`;
+
+        function gradeItem(label, value) {
+            const empty = !value ? ' empty' : '';
+            return `<div class="grade-item">
+                <div class="grade-label">${label}</div>
+                <div class="grade-value${empty}">${value || '—'}</div>
+            </div>`;
+        }
+
+        function plItem(label, value) {
+            let cls = '';
+            if (value) {
+                const n = parseFloat(value);
+                cls = n >= 90 ? ' high' : n >= 75 ? ' medium' : ' low';
             }
-            
-            // Malé testy
-            const mtContainer = document.getElementById('mtGrades');
-            mtContainer.innerHTML = '';
-            for (let i = 1; i <= 5; i++) {
-                const value = student[`MT${i}`];
-                mtContainer.innerHTML += `<div class="grade-item"><div class="grade-label">MT${i}</div><div class="grade-value ${value ? '' : 'empty'}">${value || '—'}</div></div>`;
-            }
-            
-            // Laboratorní práce
-            const lpContainer = document.getElementById('lpGrade');
-            lpContainer.innerHTML = '';
-            const lpValue = student['LP'];
-            lpContainer.innerHTML += `<div class="grade-item"><div class="grade-label">LP</div><div class="grade-value ${lpValue ? '' : 'empty'}">${lpValue || '—'}</div></div>`;
-            
-            // Praktické listy
-            const plContainer = document.getElementById('plGrades');
-            plContainer.innerHTML = '';
-            for (let i = 1; i <= 8; i++) {
-                // Zkusíme různé formáty názvů sloupců
-                let value = student[`PL${i} (%)`] || student[`PL${i}\n(%)`] || student[`PL${i}`];
-                let colorClass = '';
-                if (value) {
-                    const numValue = parseFloat(value.replace(',', '.'));
-                    if (numValue >= 90) colorClass = 'high';
-                    else if (numValue >= 60) colorClass = 'medium';
-                    else if (numValue > 0) colorClass = 'low';
-                }
-                plContainer.innerHTML += `<div class="pl-item"><div class="pl-label">PL${i}</div><div class="pl-value ${colorClass}">${value ? value + '%' : '—'}</div></div>`;
-            }
-            
-            // Souhrn - OPRAVENO pro české názvy sloupců
-            const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
-            const finalniPrumer = student['Finální průměr'] || student['Finální\nprůměr'] || '';
-            const znamka = student['ZNÁMKA'] || student['Známka'] || '';
-            
-            document.getElementById('weightedAvg').textContent = vazenyPrumer || '—';
-            document.getElementById('finalAvg').textContent = finalniPrumer || '—';
-            document.getElementById('grade').textContent = znamka || '—';
+            return `<div class="pl-item">
+                <div class="pl-label">${label}</div>
+                <div class="pl-value${cls}">${value ? value + ' %' : '—'}</div>
+            </div>`;
+        }
+
+        function displayStudent(s) {
+            document.getElementById('studentName').textContent = s.name;
+
+            // VT
+            let vtHtml = '';
+            for (let i = 1; i <= 5; i++) vtHtml += gradeItem(`VT${i}`, s[`VT${i}`]);
+            document.getElementById('vtGrades').innerHTML = vtHtml;
+
+            // MT
+            let mtHtml = '';
+            for (let i = 1; i <= 5; i++) mtHtml += gradeItem(`MT${i}`, s[`MT${i}`]);
+            document.getElementById('mtGrades').innerHTML = mtHtml;
+
+            // LP
+            document.getElementById('lpGrade').innerHTML = gradeItem('LP', s.LP);
+
+            // PL
+            let plHtml = '';
+            for (let i = 1; i <= 8; i++) plHtml += plItem(`PL${i}`, s[`PL${i}`]);
+            document.getElementById('plGrades').innerHTML = plHtml;
+
+            // Souhrn
+            document.getElementById('weightedAvg').textContent = s.vazeny  || '—';
+            document.getElementById('finalAvg').textContent    = s.final   || '—';
+            document.getElementById('bonusVal').textContent    = s.bonus   ? (parseFloat(s.bonus) < 0 ? s.bonus : (s.bonus === '0' ? '0' : '-' + s.bonus)) : '—';
+            document.getElementById('grade').textContent       = s.znamka  || '—';
         }
     </script>
 </body>

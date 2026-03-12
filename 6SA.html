@@ -378,8 +378,11 @@
             const finalniPrumer = student['Finální průměr'] || student['Finální\nprůměr'] || '';
             const znamka = student['ZNÁMKA'] || student['Známka'] || '';
             
-            document.getElementById('weightedAvg').textContent = vazenyPrumer || '—';
-            document.getElementById('finalAvg').textContent = finalniPrumer || '—';
+            // Zaokrouhlení na 2 desetinná místa
+            const vazenyFormatted = vazenyPrumer ? parseFloat(vazenyPrumer.replace(',', '.')).toFixed(2) : '—';
+            const finalniFormatted = finalniPrumer ? parseFloat(finalniPrumer.replace(',', '.')).toFixed(2) : '—';
+            document.getElementById('weightedAvg').textContent = vazenyFormatted;
+            document.getElementById('finalAvg').textContent = finalniFormatted;
             document.getElementById('grade').textContent = znamka || '—';
         }
     </script>

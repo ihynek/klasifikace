@@ -162,69 +162,73 @@
                     <div class="summary-label">Známka</div>
                     <div class="summary-value" id="grade">-</div>
                 </div>
+                <div class="summary-item">
+                    <div class="summary-label">Podvod</div>
+                    <div class="summary-value" id="podvod" style="color: #ff4444;">-</div>
+                </div>
             </div>
             <button class="btn-logout" id="btnLogout">← Odhlásit se</button>
         </div>
     </div>
     
     <script>
-        const csvData = `Poř. č.,Jméno Příjmení,VT1,VT2,VT3,VT4,VT5,VT6 ,MT1,MT2,MT3,MT4,MT5,MT6 ,LP,Vážený průměr,PL1 (%),PL2 (%),PL3 (%),PL4 (%),PL5 (%),PL6 (%),PL7 (%),PL8 (%),Počet PL,% PL,Průměr bonusů,Bonus 75%+,Celkový bonus,Finální průměr,ZNÁMKA,Email,KODY,Zadaných PL
-1,Ivana Denková,1,1,N,2,,,2,N,2,,,,1,1.5,,,92,,,,,,1,0.25,0,0,0,1.5,1,,1747,4
-2,Jakub Dolejš,1,2,N,N,,,3,3,2,,,,1,2,,,,,,,,,0,0,0,0,0,2,2,jakub_dolejs@student.gymberoun.cz,4333,
-3,Kryštof Doležal,1,2,2,3,,,2,3,3,,,,2,2.210526315789474,,,,,,,,,0,0,0,0,0,2.210526315789474,2,krystof_dolezal@student.gymberoun.cz,1497,
-4,Barbora Gezová,1,N,1,1,,,3,2,2,,,,2,1.5625,89,87,92,,,,,,3,0.75,-0.18333333333333335,-0.15,-0.33333333333333337,1.2291666666666665,1,barbora_gezova@student.gymberoun.cz,3340,
-5,Jiří Gregůrek,1,1,2,1,,,2,3,3,,,,2,1.736842105263158,,0,,,,,,,0,0,0,0,0,1.736842105263158,2,jiri_gregurek@student.gymberoun.cz,5369,
-6,Zuzana Hamerníková,2,1,2,3,,,3,3,3,,,,N,2.3333333333333335,,,,,,,,,0,0,0,0,0,2.3333333333333335,2,zuzana_hamernikova@student.gymberoun.cz,1187,
-7,Jiří Hejna,1,1,1,2,,,3,3,N,,,,1,1.6470588235294117,,99,0,,,,,,1,0.25,0,0,0,1.6470588235294117,2,jiri_hejna@student.gymberoun.cz,8208,
-8,Štěpán Káš,1,1,1,2,,,3,3,3,,,,1,1.7894736842105263,86,,99,,,,,,2,0.5,0,0,0,1.7894736842105263,2,stepan_kas@student.gymberoun.cz,3739,
-9,Anna Kollerová,1,1,2,3,,,3,N,3,,,,2,2.0588235294117645,,,89,,,,,,1,0.25,0,0,0,2.0588235294117645,2,anna_kollerova@student.gymberoun.cz,1265,
-10,Beata Kubalová,2,2,1,2,,,3,N,N,,,,2,1.9333333333333333,,,,100,,,,,1,0.25,0,0,0,1.9333333333333333,2,beata_kubalova@student.gymberoun.cz,8186,
-11,Jolana Kubrychtová,1,1,1,N,,,2,3,2,,,,1,1.5,99,96,96,,,,,,3,0.75,-0.25,-0.15,-0.4,1.1,1,jolana_kubrychtova@student.gymberoun.cz,5556,
-12,Aleš Mátl,1,2,2,2,,,2,N,3,,,,1,1.8823529411764706,,,,,,,,,0,0,0,0,0,1.8823529411764706,2,ales_matl@student.gymberoun.cz,8199,
-13,Emma Mulačová,1,N,2,3,,,5,N,3,,,,1,2.5,,,96,100,,,,,2,0.5,0,0,0,2.5,2,emma_mulacova@student.gymberoun.cz,8533,
-14,Teodor Rada,3,2,3,4,,,3,5,4,,,,,3.3333333333333335,99,,,,,,,,1,0.25,0,0,0,3.3333333333333335,3,teodor_rada@student.gymberoun.cz,4798,
-15,Stella Roztočilová,1,1,N,4,,,4,3,3,,,,N,2.533333333333333,,,93,,,,,,1,0.25,0,0,0,2.533333333333333,3,stella_roztocilova@student.gymberoun.cz,4159,
-16,Kristýna Růžičková,1,1,N,1,,,3,2,N,,,,N,1.4615384615384615,,,93,100,,,,,2,0.5,0,0,0,1.4615384615384615,1,kristyna_ruzickova@student.gymberoun.cz,2983,
-17,Petr Slimáček,1,1,1,1,,,2,1,3,,,,2,1.368421052631579,,,90,,,,,,1,0.25,0,0,0,1.368421052631579,1,petr_slimacek@student.gymberoun.cz,5915,
-18,Ladislav Ťoupalík,1,2,2,2,,,3,2,3,,,,2,2.0526315789473686,,,,,,,,,0,0,0,0,0,2.0526315789473686,2,ladislav_toupalik@student.gymberoun.cz,7345,
-19,Veronika Velebová,2,N,2,N,,,N,3,3,,,,1,2.272727272727273,,,,,,,,,0,0,0,0,0,2.272727272727273,2,veronika_velebova@student.gymberoun.cz,6749,
-20,Kryštof Žolko,1,1,2,2,,,1,1,3,,,,2,1.5789473684210527,,,92,,,,,,1,0.25,0,0,0,1.5789473684210527,2,krystof_zolko@student.gymberoun.cz,2653,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-37,LEGENDA A PRAVIDLA:,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-38,Pokud student neudělal žádné PL:,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-39,• Celkový bonus = 0,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-40,• Finální průměr = Vážený průměr (bez bonusů),,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-41,• Známka se normálně vypočítá,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-47,Bonusy z praktických listů (hodnotí se jen aktuálně zadané PL):,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-48,• 90-100%: -0.25,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-,• 75-89%: -0.15,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-,• 60-74%: -0.1,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-,• Výsledky 0 % se nepočítají jako odevzdaná práce,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-,Bonus za konzistenci (platí od 3. odevzdané práce):,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-,• Odevzdáš ≥75 % zadaných PL → extra -0.15,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        const csvData = `Poř. č.,Jméno Příjmení,VT1,VT2,VT3,VT4,VT5,VT6 ,MT1,MT2,MT3,MT4,MT5,MT6 ,LP,Vážený průměr,PL1 (%),PL2 (%),PL3 (%),PL4 (%),PL5 (%),PL6 (%),PL7 (%),PL8 (%),Počet PL,% PL,Průměr bonusů,Bonus 75%+,Celkový bonus,Finální průměr,ZNÁMKA,Email,KODY,Zadaných PL,PODVOD (zadej slovem),Penalizace (+0.3)
+1,Ivana Denková,1,1,N,2,,,2,N,2,,,,1,1.5,,,92,,,,,,1,0.25,0,0,0,1.5,1,,1747,4,,0
+2,Jakub Dolejš,1,2,N,N,,,3,3,2,,,,1,2,,,,,,,,,0,0,0,0,0,2,2,jakub_dolejs@student.gymberoun.cz,4333,,,0
+3,Kryštof Doležal,1,2,2,3,,,2,3,3,,,,2,2.21052631578947,,,,,,,,,0,0,0,0,0,2.21052631578947,2,krystof_dolezal@student.gymberoun.cz,1497,,,0
+4,Barbora Gezová,1,N,1,1,,,3,2,2,,,,2,1.5625,89,87,92,,,,,,3,0.75,-0.183333333333333,-0.15,-0.333333333333333,1.22916666666667,1,barbora_gezova@student.gymberoun.cz,3340,,,0
+5,Jiří Gregůrek,1,1,2,1,,,2,3,3,,,,2,1.73684210526316,,0,,,,,,,0,0,0,0,0,1.73684210526316,2,jiri_gregurek@student.gymberoun.cz,5369,,,0
+6,Zuzana Hamerníková,2,1,2,3,,,3,3,3,,,,N,2.33333333333333,,,,,,,,,0,0,0,0,0,2.33333333333333,2,zuzana_hamernikova@student.gymberoun.cz,1187,,,0
+7,Jiří Hejna,1,1,1,2,,,3,3,N,,,,1,1.64705882352941,,99,0,,,,,,1,0.25,0,0,0,1.64705882352941,2,jiri_hejna@student.gymberoun.cz,8208,,,0
+8,Štěpán Káš,1,1,1,2,,,3,3,3,,,,1,1.78947368421053,86,,99,,,,,,2,0.5,0,0,0,1.78947368421053,2,stepan_kas@student.gymberoun.cz,3739,,,0
+9,Anna Kollerová,1,1,2,3,,,3,N,3,,,,2,2.05882352941176,,,89,,,,,,1,0.25,0,0,0,2.05882352941176,2,anna_kollerova@student.gymberoun.cz,1265,,,0
+10,Beata Kubalová,2,2,1,2,,,3,N,N,,,,2,1.93333333333333,,,,100,,,,,1,0.25,0,0,0,1.93333333333333,2,beata_kubalova@student.gymberoun.cz,8186,,,0
+11,Jolana Kubrychtová,1,1,1,N,,,2,3,2,,,,1,1.5,99,96,96,,,,,,3,0.75,-0.25,-0.15,-0.4,1.1,1,jolana_kubrychtova@student.gymberoun.cz,5556,,,0
+12,Aleš Mátl,1,2,2,2,,,2,N,3,,,,1,1.88235294117647,,,,,,,,,0,0,0,0,0,1.88235294117647,2,ales_matl@student.gymberoun.cz,8199,,,0
+13,Emma Mulačová,1,N,2,3,,,5,N,3,,,,1,2.5,,,96,100,,,,,2,0.5,0,0,0,2.5,2,emma_mulacova@student.gymberoun.cz,8533,,,0
+14,Teodor Rada,3,2,3,4,,,3,5,4,,,,,3.33333333333333,99,,,,,,,,1,0.25,0,0,0,3.33333333333333,3,teodor_rada@student.gymberoun.cz,4798,,,0
+15,Stella Roztočilová,1,1,N,4,,,4,3,3,,,,N,2.53333333333333,,,93,,,,,,1,0.25,0,0,0,2.53333333333333,3,stella_roztocilova@student.gymberoun.cz,4159,,,0
+16,Kristýna Růžičková,1,1,N,1,,,3,2,N,,,,N,1.46153846153846,,,93,100,,,,,2,0.5,0,0,0,1.46153846153846,1,kristyna_ruzickova@student.gymberoun.cz,2983,,,0
+17,Petr Slimáček,1,1,1,1,,,2,1,3,,,,2,1.36842105263158,,,90,,,,,,1,0.25,0,0,0,1.36842105263158,1,petr_slimacek@student.gymberoun.cz,5915,,,0
+18,Ladislav Ťoupalík,1,2,2,2,,,3,2,3,,,,2,2.05263157894737,,,,,,,,,0,0,0,0,0,2.05263157894737,2,ladislav_toupalik@student.gymberoun.cz,7345,,,0
+19,Veronika Velebová,2,N,2,N,,,N,3,3,,,,1,2.27272727272727,,,,,,,,,0,0,0,0,0,2.27272727272727,2,veronika_velebova@student.gymberoun.cz,6749,,,0
+20,Kryštof Žolko,1,1,2,2,,,1,1,3,,,,2,1.57894736842105,,,92,,,,,,1,0.25,0,0,0,1.57894736842105,2,krystof_zolko@student.gymberoun.cz,2653,,,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+37,LEGENDA A PRAVIDLA:,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+38,Pokud student neudělal žádné PL:,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+39,• Celkový bonus = 0,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+40,• Finální průměr = Vážený průměr (bez bonusů),,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+41,• Známka se normálně vypočítá,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+47,Bonusy z praktických listů (hodnotí se jen aktuálně zadané PL):,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+48,• 90-100%: -0.25,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+,• 75-89%: -0.15,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+,• 60-74%: -0.1,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+,• Výsledky 0 % se nepočítají jako odevzdaná práce,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+,Bonus za konzistenci (platí od 3. odevzdané práce):,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+,• Odevzdáš ≥75 % zadaných PL → extra -0.15,,,,,,,,,,,,,,,,,,,,,,,0,0,0,0,0,,,,,,,0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 `;
-        const pinsMapping = {"ivana denková": "1747", "jakub dolejš": "4333", "kryštof doležal": "1497", "barbora gezová": "3340", "jiří gregůrek": "5369", "zuzana hamerníková": "1187", "jiří hejna": "8208", "štěpán káš": "3739", "anna kollerová": "1265", "beata kubalová": "8186", "jolana kubrychtová": "5556", "aleš mátl": "8199", "emma mulačová": "8533", "teodor rada": "4798", "stella roztočilová": "4159", "kristýna růžičková": "2983", "petr slimáček": "5915", "ladislav ťoupalík": "7345", "veronika velebová": "6749", "kryštof žolko": "2653", "• celkový bonus = 0": "8592", "• finální průměr = vážený průměr (bez bonusů)": "8120"};
+        const pinsMapping = {"ivana denková": "1747", "jakub dolejš": "4333", "kryštof doležal": "1497", "barbora gezová": "3340", "jiří gregůrek": "5369", "zuzana hamerníková": "1187", "jiří hejna": "8208", "štěpán káš": "3739", "anna kollerová": "1265", "beata kubalová": "8186", "jolana kubrychtová": "5556", "aleš mátl": "8199", "emma mulačová": "8533", "teodor rada": "4798", "stella roztočilová": "4159", "kristýna růžičková": "2983", "petr slimáček": "5915", "ladislav ťoupalík": "7345", "veronika velebová": "6749", "kryštof žolko": "2653"};
         
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');
@@ -384,6 +388,13 @@
             document.getElementById('weightedAvg').textContent = vazenyFormatted;
             document.getElementById('finalAvg').textContent = finalniFormatted;
             document.getElementById('grade').textContent = znamka || '—';
+            
+            // Podvod
+            const podvod = student['PODVOD (zadej slovem)'] || student['Podvod'] || student['PODVOD'] || '';
+            document.getElementById('podvod').textContent = podvod || '—';
+            if (podvod && podvod !== '—' && podvod.trim() !== '') {
+                document.getElementById('podvod').style.fontWeight = 'bold';
+            }
         }
     </script>
 </body>

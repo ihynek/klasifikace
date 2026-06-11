@@ -393,7 +393,9 @@
             
             // Souhrn - OPRAVENO pro české názvy sloupců
             const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
-            const finalniPrumer = Math.max(parseFloat((student['Finální průměr'] || student['Finální\nprůměr'] || '0').replace(',', '.')), 1.0);
+            const finalniPrumerRaw = student['Finální průměr'] || student['Finální\nprůměr'] || '0';
+            const finalniPrumerNum = parseFloat(finalniPrumerRaw.replace(',', '.'));
+            const finalniPrumer = Math.max(finalniPrumerNum, 1.0);
             const znamka = student['ZNÁMKA'] || student['Známka'] || '';
             
             // Zaokrouhlení na 2 desetinná místa

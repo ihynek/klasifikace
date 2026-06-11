@@ -393,7 +393,7 @@
             
             // Souhrn - OPRAVENO pro české názvy sloupců
             const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
-            const finalniPrumer = student['Finální průměr'] || student['Finální\nprůměr'] || '';
+            const finalniPrumer = Math.max(student['Finální průměr'] || student['Finální\nprůměr'] || '', 1.0);
             const znamka = student['ZNÁMKA'] || student['Známka'] || '';
             
             // Zaokrouhlení na 2 desetinná místa

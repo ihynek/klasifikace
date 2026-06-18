@@ -178,48 +178,48 @@
     
     <script>
         const csvData = `Poř. č.,Jméno a Příjmení,VT1,VT2,VT3,VT4,VT5,VT6 ,MT1,MT2,MT3,MT4,MT5,MT6 ,LP,Vážený průměr,PL1 (%),PL2 (%),PL3 (%),PL4 (%),PL5 (%),PL6 (%),PL7 (%),PL8 (%),Počet PL,% PL,Průměr bonusů,Bonus 75%+,Celkový bonus,Finální průměr,ZNÁMKA,email,kody,Zadaných PL,Podvod (nálepka),Penalizace (+0.2)
-1,Baxa David,3,1,1,3,,,3,1,3,4,,,N,2.3,,,,,,,,,0,0,0,0,0,2.3,2,david_baxa@student.gymberoun.cz,2824,4,0,0
-2,Bureš Šimon,2,1,1,3,,,1,1,3,4,,,1,1.9047619047619047,97,98,92,100,,,,,4,1,-0.25,-0.15,-0.4,1.5047619047619047,2, simon_bures@student.gymberoun.cz,1409,,0,0
-3,Cenknerová Eva,2,1,2,2,,,3,1,N,3,,,1,1.894736842105263,95,98,82,100,,,,,4,1,-0.225,-0.15,-0.375,1.519736842105263,2, eva_cenknerova@student.gymberoun.cz,5506,,0,0
-4,Čedroňová Tereza,3,1,1,1,,,3,2,N,4,,,1,1.9473684210526316,94,98,,,,,,,2,0.5,0,0,0,1.9473684210526316,2, tereza_cedronova@student.gymberoun.cz,5012,,0,0
-5,Havlová Ivana,2,2,2,3,,,2,1,1,3,,,1,2,95,100,100,100,,,,,4,1,-0.25,-0.15,-0.4,1.6,2,ivana_havlova@student.gymberoun.cz,4657,,0,0
-6,Hujerová Patricie,3,1,2,3,,,3,1,3,4,,,1,2.380952380952381,100,100,97,,,,,,3,0.75,-0.25,-0.15,-0.4,1.980952380952381,2, patricie_hujerova@student.gymberoun.cz,3286,,0,0
-7,Iraheta Carmen,1,1,2,2,,,N,1,1,3,,,1,1.5263157894736843,100,99,99,96,,,,,4,1,-0.25,-0.15,-0.4,1.1263157894736842,1,carmen_iraheta@student.gymberoun.cz,2679,,0,0
-8,Jandová Sofie Anna,1,1,1,1,,,N,1,N,3,,,1,1.2352941176470589,82,,,,,,,,1,0.25,0,0,0,1.2352941176470589,1, sofie-anna_jandova@student.gymberoun.cz,9935,,0,0
-9,Kermesová Anna,2,1,3,3,,,1,1,3,3,,,1,2.0952380952380953,,,,,,,,,0,0,0,0,0,2.0952380952380953,2, anna_kermesova@student.gymberoun.cz,2424,,0,0
-10,Koza Tomáš,4,1,1,1,,,3,1,3,4,,,5,2.2857142857142856,,,,,,,,,0,0,0,0,0,2.2857142857142856,2, tomas_koza@student.gymberoun.cz,7912,,0,0
-11,Lejtnarová Iva,2,2,2,3,,,2,1,1,,,,1,1.894736842105263,,,,,,,,,0,0,0,0,0,1.894736842105263,2, iva_lejtnarova@student.gymberoun.cz,1520,,0,0
-12,Macíková Anna,2,N,N,3,,,3,1,4,3,,,1,2.533333333333333,,99,,,,,,,1,0.25,0,0,0,2.533333333333333,3, anna_macikova@student.gymberoun.cz,1488,,0,0
-13,Musiol Kryštof,2,1,2,3,,,1,1,2,1,,,N,1.7,90,95,77,96,,,,,4,1,-0.225,-0.15,-0.375,1.325,1, krystof_musiol@student.gymberoun.cz,2535,,0,0
-14,Pánková Anna,3,N,3,3,,,4,N,3,N,,,1,3,88,,,,,,,,1,0.25,0,0,0,3,3, anna_pankova@student.gymberoun.cz,4582,,0,0
-15,Peroutka Vít,2,N,2,1,,,3,3,4,N,,,N,2.3333333333333335,,,,,,,,,0,0,0,0,0,2.3333333333333335,2, vit_peroutka@student.gymberoun.cz,4811,,0,0
-16,Režňáková Lucie,3,2,1,3,,,N,2,N,3,,,1,2.235294117647059,,,,,,,,,0,0,0,0,0,2.235294117647059,2,lucie_reznakova@student.gymberoun.cz,9279,,0,0
-17,Řepík Ondřej,1,1,1,N,,,2,2,3,3,,,1,1.6666666666666667,,,,,,,,,0,0,0,0,0,1.6666666666666667,2, ondrej_repik@student.gymberoun.cz,1434,,0,0
-18,Říhová Adriana,2,1,2,3,,,1,N,1,3,,,1,1.8421052631578947,,,,,,,,,0,0,0,0,0,1.8421052631578947,2,adriana_rihova@student.gymberoun.cz,4257,,0,0
-19,Smrčinová Tereza,2,1,1,2,,,3,1,3,N,,,1,1.736842105263158,92,99,99,96,,,,,4,1,-0.25,-0.15,-0.4,1.336842105263158,1, tereza_smrcinova@student.gymberoun.cz,9928,,0,0
-20,Strejčková Nela,1,1,2,N,,,N,1,2,3,,,1,1.5625,96,100,99,100,,,,,4,1,-0.25,-0.15,-0.4,1.1625,1, nela_strejckova@student.gymberoun.cz,7873,,0,0
-21,Suchopárová Adéla,2,2,3,3,,,3,1,1,4,,,3,2.4285714285714284,,100,99,96,,,,,3,0.75,-0.25,-0.15,-0.4,2.0285714285714285,2, adela_suchoparova@student.gymberoun.cz,4611,,0,0
-22,Tarant Tomáš,1,N,1,2,,,3,2,4,4,,,1,2.1666666666666665,,97,94,100,,,,,3,0.75,-0.25,-0.15,-0.4,1.7666666666666666,2, tomas_tarant@student.gymberoun.cz,8359,,0,0
-23,Tauferová Natálie,N,1,1,2,,,1,1,1,3,,,1,1.3888888888888888,92,,93,100,,,,,3,0.75,-0.25,-0.15,-0.4,0.9888888888888888,1, natalie_tauferova@student.gymberoun.cz,5557,,0,0
-24,Tuček Matěj,2,1,1,1,,,3,1,N,3,,,1,1.5789473684210527,,,,,,,,,0,0,0,0,0,1.5789473684210527,2, matej_tucek@student.gymberoun.cz,1106,,0,0
-25,Vasserbauer Katrin,1,N,2,2,,,3,N,3,3,,,2,2.1875,82,96,86,96,,,,,4,1,-0.2,-0.15,-0.35,1.8375,2, katrin_vasserbauer@student.gymberoun.cz,3615,,0,0
-26,Večerníková Tereza,2,2,1,2,,,N,1,1,3,,,1,1.6842105263157894,82,99,93,,,,,,3,0.75,-0.21666666666666667,-0.15,-0.3666666666666667,1.3175438596491227,1, tereza_vecernikova@student.gymberoun.cz,7924,,0,0
-27,Veselá Karolína,4,2,N,2,,,4,1,3,2,,,1,2.5,,,,,,,,,0,0,0,0,0,2.5,2, karolina_vesela@student.gymberoun.cz,6574,,0,0
-28,Vyskočil Václav,1,1,2,1,,,1,1,1,3,,,1,1.3333333333333333,100,98,99,96,,,,,4,1,-0.25,-0.15,-0.4,0.9333333333333332,1, vaclav_vyskocil@student.gymberoun.cz,5552,,0,0
-29,Zítková Barbora,1,1,1,2,,,1,1,1,2,,,1,1.2380952380952381,91,,100,100,,,,,3,0.75,-0.25,-0.15,-0.4,0.8380952380952381,1, barbora_zitkova@student.gymberoun.cz,3547,,0,0
+1,Baxa David,3,1,1,3,,,3,1,3,4,2,,N,2.272727272727273,,,,,,,,,,,,,,2.272727272727273,2,david_baxa@student.gymberoun.cz,2824,4,,
+2,Bureš Šimon,2,1,1,3,,,1,1,3,4,1,,1,1.826086956521739,97,98,92,100,,,,,4,1,-0.25,-0.15,-0.4,1.426086956521739,1, simon_bures@student.gymberoun.cz,1409,,,
+3,Cenknerová Eva,2,1,2,2,,,3,1,N,3,5,,1,2.1904761904761907,95,98,82,100,,,,,4,1,-0.225,-0.15,-0.375,1.8154761904761907,2, eva_cenknerova@student.gymberoun.cz,5506,,,
+4,Čedroňová Tereza,3,1,1,1,,,3,2,N,4,5,,1,2.238095238095238,94,98,,,,,,,2,0.5,,,,2.238095238095238,2, tereza_cedronova@student.gymberoun.cz,5012,,,
+5,Havlová Ivana,2,2,2,3,,,2,1,1,3,3,,1,2.0869565217391304,95,100,100,100,,,,,4,1,-0.25,-0.15,-0.4,1.6869565217391305,2,ivana_havlova@student.gymberoun.cz,4657,,,
+6,Hujerová Patricie,3,1,2,3,,,3,1,3,4,3,,1,2.4347826086956523,100,100,97,,,,,,3,0.75,-0.25,-0.15,-0.4,2.0347826086956524,2, patricie_hujerova@student.gymberoun.cz,3286,,,
+7,Iraheta Carmen,1,1,2,2,,,N,1,1,3,1,,1,1.4761904761904763,100,99,99,96,,,,,4,1,-0.25,-0.15,-0.4,1.0761904761904764,1,carmen_iraheta@student.gymberoun.cz,2679,,,
+8,Jandová Sofie Anna,1,1,1,1,,,N,1,N,3,3,,1,1.4210526315789473,82,,,,,,,,1,0.25,,,,1.4210526315789473,1, sofie-anna_jandova@student.gymberoun.cz,9935,,,
+9,Kermesová Anna,2,1,3,3,,,1,1,3,3,4,,1,2.260869565217391,,,,,,,,,,,,,,2.260869565217391,2, anna_kermesova@student.gymberoun.cz,2424,,,
+10,Koza Tomáš,4,1,1,1,,,3,1,3,4,1,,5,2.1739130434782608,,,,,,,,,,,,,,2.1739130434782608,2, tomas_koza@student.gymberoun.cz,7912,,,
+11,Lejtnarová Iva,2,2,2,3,,,2,1,1,,3,,1,2,,,,,,,,,,,,,,2,2, iva_lejtnarova@student.gymberoun.cz,1520,,,
+12,Macíková Anna,2,N,N,3,,,3,1,4,3,5,,1,2.823529411764706,,99,,,,,,,1,0.25,,,,2.823529411764706,3, anna_macikova@student.gymberoun.cz,1488,,,
+13,Musiol Kryštof,2,1,2,3,,,1,1,2,1,2,,N,1.7272727272727273,90,95,77,96,,,,,4,1,-0.225,-0.15,-0.375,1.3522727272727273,1, krystof_musiol@student.gymberoun.cz,2535,,,
+14,Pánková Anna,3,N,3,3,,,4,N,3,N,N,,1,3,88,,,,,,,,1,0.25,,,,3,3, anna_pankova@student.gymberoun.cz,4582,,,
+15,Peroutka Vít,2,N,2,1,,,3,3,4,N,1,,N,2.176470588235294,,,,,,,,,,,,,,2.176470588235294,2, vit_peroutka@student.gymberoun.cz,4811,,,
+16,Režňáková Lucie,3,2,1,3,,,N,2,N,3,4,,1,2.4210526315789473,,,,,,,,,,,,,,2.4210526315789473,2,lucie_reznakova@student.gymberoun.cz,9279,,,
+17,Řepík Ondřej,1,1,1,N,,,2,2,3,3,4,,1,1.9,,,,,,,,,,,,,,1.9,2, ondrej_repik@student.gymberoun.cz,1434,,,
+18,Říhová Adriana,2,1,2,3,,,1,N,1,3,2,,1,1.8571428571428572,,,,,,,,,,,,,,1.8571428571428572,2,adriana_rihova@student.gymberoun.cz,4257,,,
+19,Smrčinová Tereza,2,1,1,2,,,3,1,3,N,5,,1,2.0476190476190474,92,99,99,96,,,,,4,1,-0.25,-0.15,-0.4,1.6476190476190475,2, tereza_smrcinova@student.gymberoun.cz,9928,,,
+20,Strejčková Nela,1,1,2,N,,,N,1,2,3,1,,1,1.5,96,100,99,100,,,,,4,1,-0.25,-0.15,-0.4,1.1,1, nela_strejckova@student.gymberoun.cz,7873,,,
+21,Suchopárová Adéla,2,2,3,3,,,3,1,1,4,5,,3,2.652173913043478,,100,99,96,,,,,3,0.75,-0.25,-0.15,-0.4,2.252173913043478,2, adela_suchoparova@student.gymberoun.cz,4611,,,
+22,Tarant Tomáš,1,N,1,2,,,3,2,4,4,4,,1,2.35,,97,94,100,,,,,3,0.75,-0.25,-0.15,-0.4,1.9500000000000002,2, tomas_tarant@student.gymberoun.cz,8359,,,
+23,Tauferová Natálie,N,1,1,2,,,1,1,1,3,1,,1,1.35,92,,93,100,,,,,3,0.75,-0.25,-0.15,-0.4,0.9500000000000001,1, natalie_tauferova@student.gymberoun.cz,5557,,,
+24,Tuček Matěj,2,1,1,1,,,3,1,N,3,N,,1,1.5789473684210527,,,,,,,,,,,,,,1.5789473684210527,2, matej_tucek@student.gymberoun.cz,1106,,,
+25,Vasserbauer Katrin,1,N,2,2,,,3,N,3,3,N,,2,2.1875,82,96,86,96,,,,,4,1,-0.2,-0.15,-0.35,1.8375,2, katrin_vasserbauer@student.gymberoun.cz,3615,,,
+26,Večerníková Tereza,2,2,1,2,,,N,1,1,3,3,,1,1.8095238095238095,82,99,93,,,,,,3,0.75,-0.21666666666666667,-0.15,-0.3666666666666667,1.4428571428571428,1, tereza_vecernikova@student.gymberoun.cz,7924,,,
+27,Veselá Karolína,4,2,N,2,,,4,1,3,2,4,,1,2.65,,,,,,,,,,,,,,2.65,3, karolina_vesela@student.gymberoun.cz,6574,,,
+28,Vyskočil Václav,1,1,2,1,,,1,1,1,3,4,,1,1.565217391304348,100,98,99,96,,,,,4,1,-0.25,-0.15,-0.4,1.1652173913043478,1, vaclav_vyskocil@student.gymberoun.cz,5552,,,
+29,Zítková Barbora,1,1,1,2,,,1,1,1,2,1,,1,1.2173913043478262,91,,100,100,,,,,3,0.75,-0.25,-0.15,-0.4,0.8173913043478261,1, barbora_zitkova@student.gymberoun.cz,3547,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-37,LEGENDA A PRAVIDLA:,,,,,,,,,,,,,,,,,,,,,,,0,0,0,,0,#VALUE!,,,,,0,0
-38,Pokud student neudělal žádné PL:,,,,,,,,,,,,,,,,,,,,,,,0,0,0,,0,#VALUE!,,,,,0,0
-39,• Celkový bonus = 0,,,,,,,,,,,,,,,,,,,,,,,0,0,0,,0,#VALUE!,,,,,0,0
-40,• Finální průměr = Vážený průměr (bez bonusů),,,,,,,,,,,,,,,,,,,,,,,0,0,0,,0,#VALUE!,,,,,0,0
-41,• Známka se normálně vypočítá,,,,,,,,,,,,,,,,,,,,,,,0,0,0,,,,,,,,,0
-47,Bonusy z praktických listů (hodnotí se jen aktuálně zadané PL):,,,,,,,,,,,,,,,,,,,,,,,0,0,0,,,,,,,,,0
-48,• 90-100%: -0.25,,,,,,,,,,,,,,,,,,,,,,,0,0,0,,,,,,,,,0
-,• 75-89%: -0.15,,,,,,,,,,,,,,,,,,,,,,,0,,,,,,,,,,,0
-,• 60-74%: -0.1,,,,,,,,,,,,,,,,,,,,,,,0,,,,,,,,,,,0
-,• Výsledky 0 % se nepočítají jako odevzdaná práce,,,,,,,,,,,,,,,,,,,,,,,0,,,,,,,,,,,0
-,Bonus za konzistenci (platí od 3. odevzdané práce):,,,,,,,,,,,,,,,,,,,,,,,0,,,,,,,,,,,0
-,• Odevzdáš ≥75 % zadaných PL → extra -0.15,,,,,,,,,,,,,,,,,,,,,,,0,,,,,,,,,,,0
+37,LEGENDA A PRAVIDLA:,,,,,,,,,,,,,,,,,,,,,,,,,,,,#VALUE!,,,,,,
+38,Pokud student neudělal žádné PL:,,,,,,,,,,,,,,,,,,,,,,,,,,,,#VALUE!,,,,,,
+39,• Celkový bonus = 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,#VALUE!,,,,,,
+40,• Finální průměr = Vážený průměr (bez bonusů),,,,,,,,,,,,,,,,,,,,,,,,,,,,#VALUE!,,,,,,
+41,• Známka se normálně vypočítá,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+47,Bonusy z praktických listů (hodnotí se jen aktuálně zadané PL):,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+48,• 90-100%: -0.25,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,• 75-89%: -0.15,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,• 60-74%: -0.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,• Výsledky 0 % se nepočítají jako odevzdaná práce,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,Bonus za konzistenci (platí od 3. odevzdané práce):,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,• Odevzdáš ≥75 % zadaných PL → extra -0.15,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,"• Do PL buňky napiš ""P"" = podvod → zobrazuje se jako nálepka, bez dopadu na průměr (do příštího roku)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,"• Příklad: 2× P = -0.4, 3× P = -0.6, 4× P = -0.8, 5× P = -1.0",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -249,7 +249,7 @@
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 `;
-        const pinsMapping = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547"};
+        const pinsMapping = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547", "pokud student neudělal žádné pl:": "4527", "• celkový bonus = 0": "6514", "• finální průměr = vážený průměr (bez bonusů)": "2674"};
         
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');

@@ -119,7 +119,7 @@
         
         <div class="login-box" id="loginBox">
             <div class="input-group">
-                <label class="input-label">Zadej své jméno a příjmení:</label>
+                <label class="input-label">Zadej své příjmení:</label>
                 <input type="text" class="search-input" id="searchInput" placeholder="např. Novák (malá písmena)" autocomplete="off">
             </div>
             <div class="input-group">
@@ -127,7 +127,7 @@
                 <input type="password" class="pin-input" id="pinInput" placeholder="• • • •" maxlength="4" autocomplete="off">
             </div>
             <button class="btn-verify" id="btnVerify">Zobrazit hodnocení</button>
-            <div class="error-message" id="errorMessage">❌ Špatné jméno nebo PIN!</div>
+            <div class="error-message" id="errorMessage">❌ Špatné příjmení nebo PIN!</div>
             
             <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
                 <a href="index.html" style="color: #667eea; text-decoration: none; font-size: 0.95em; transition: color 0.3s;">
@@ -393,16 +393,23 @@
             
             // Souhrn - OPRAVENO pro české názvy sloupců
             const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
-            const finalniPrumerRaw = student['Finální průměr'] || student['Finální\nprůměr'] || '0';
-            const finalniPrumerNum = parseFloat(finalniPrumerRaw.replace(',', '.'));
-            const finalniPrumer = Math.max(finalniPrumerNum, 1.0);
+            const finalniPrumerRaw = student['Finální průměr'] || student['Finální\nprůměr'] || '';
+            const vazenyPrumerVal = parseFloat((student['Vážený průměr'] || '').replace(',', '.'));
+            
+            // Pokud neni vazeny prumer, neni nic zadano
+            if (!vazenyPrumerVal || isNaN(vazenyPrumerVal)) {
+                var finalniPrumer = null;
+            } else {
+                const finalniPrumerNum = parseFloat(finalniPrumerRaw.replace(',', '.'));
+                finalniPrumer = isNaN(finalniPrumerNum) ? vazenyPrumerVal : Math.max(finalniPrumerNum, 1.0);
+            }
             const znamka = student['ZNÁMKA'] || student['Známka'] || '';
             
             // Zaokrouhlení na 2 desetinná místa
             const vazenyFormatted = vazenyPrumer ? parseFloat(vazenyPrumer.replace(',', '.')).toFixed(2) : '—';
             const finalniFormatted = finalniPrumer ? finalniPrumer.toFixed(2) : '—';
             document.getElementById('weightedAvg').textContent = vazenyFormatted;
-            document.getElementById('finalAvg').textContent = finalniFormatted;
+            document.getElementById('finalAvg').textContent = finalniPrumer === null ? '—' : finalniFormatted;
             document.getElementById('grade').textContent = znamka || '—';
             
             // Podvod

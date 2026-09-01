@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hodnocení - Třída 7SA</title>
+    <title>Hodnocení - Třída 7SA - Biologie</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -115,7 +115,7 @@
 <body>
     <div class="container">
         <h1>🔐 Hodnocení</h1>
-        <div class="subtitle">Třída 7SA - Biologie</div>
+        <div class="subtitle">Třída 7SA - Biologie - Biologie</div>
         
         <div class="login-box" id="loginBox">
             <div class="input-group">
@@ -231,8 +231,7 @@
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-`;
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,`;
         const pinsMapping = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547", "pokud student neudělal žádné pl:": "4527", "• celkový bonus = 0": "6514", "• finální průměr = vážený průměr (bez bonusů)": "2674"};
         
         function parseCSV(csv) {
@@ -294,7 +293,7 @@
             }
             
             const found = students.find(s => {
-                const nameFields = ['Jméno a Příjmení', 'Příjmení', 'Jméno Příjmení'];
+                const nameFields = ['Jméno a Jméno a Příjmení', 'Jméno a Příjmení', 'Jméno Jméno a Příjmení'];
                 for (let field of nameFields) {
                     const name = (s[field] || '').toLowerCase();
                     if (name.includes(prijmeni)) return true;
@@ -308,7 +307,7 @@
             }
             
             let fullName = '';
-            const nameFields = ['Jméno a Příjmení', 'Příjmení', 'Jméno Příjmení'];
+            const nameFields = ['Jméno a Jméno a Příjmení', 'Jméno a Příjmení', 'Jméno Jméno a Příjmení'];
             for (let field of nameFields) {
                 if (found[field]) {
                     fullName = found[field];

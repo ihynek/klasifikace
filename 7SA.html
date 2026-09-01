@@ -119,15 +119,15 @@
         
         <div class="login-box" id="loginBox">
             <div class="input-group">
-                <label class="input-label">Zadej své jméno a příjmení:</label>
-                <input type="text" class="search-input" id="searchInput" placeholder="např. jan novák (malá písmena)" autocomplete="off">
+                <label class="input-label">Zadej své příjmení:</label>
+                <input type="text" class="search-input" id="searchInput" placeholder="např. Novák (malá písmena)" autocomplete="off">
             </div>
             <div class="input-group">
                 <label class="input-label">Zadej svůj PIN:</label>
                 <input type="password" class="pin-input" id="pinInput" placeholder="• • • •" maxlength="4" autocomplete="off">
             </div>
             <button class="btn-verify" id="btnVerify">Zobrazit hodnocení</button>
-            <div class="error-message" id="errorMessage">❌ Špatné jméno nebo PIN!</div>
+            <div class="error-message" id="errorMessage">❌ Špatné příjmení nebo PIN!</div>
             
             <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
                 <a href="index.html" style="color: #667eea; text-decoration: none; font-size: 0.95em; transition: color 0.3s;">
@@ -232,7 +232,7 @@
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,`;
-        const pinsMapping = {};
+        const pinsMapping = {"ivana denková": "1747", "jakub dolejš": "4333", "kryštof doležal": "1497", "barbora gezová": "3340", "jiří gregůrek": "5369", "zuzana hamerníková": "1187", "jiří hejna": "8208", "štěpán káš": "3739", "anna kollerová": "1265", "beata kubalová": "8186", "jolana kubrychtová": "5556", "aleš mátl": "8199", "emma mulačová": "8533", "teodor rada": "4798", "stella roztočilová": "4159", "kristýna růžičková": "2983", "petr slimáček": "5915", "ladislav ťoupalík": "7345", "veronika velebová": "6749", "kryštof žolko": "2653", "pokud student neudělal žádné pl:": "8592", "• celkový bonus = 0": "8120", "• finální průměr = vážený průměr (bez bonusů)": "4765", "• známka se normálně vypočítá": "8979", "bonusy z praktických listů (hodnotí se jen aktuálně zadané pl):": "5823", "• 90-100%: -0.25": "2994", "• 75-89%: -0.15": "3292", "• 60-74%: -0.1": "3132", "• výsledky 0 % se nepočítají jako odevzdaná práce": "8897", "bonus za konzistenci (platí od 3. odevzdané práce):": "9055", "• odevzdáš ≥75 % zadaných pl → extra -0.15": "3630", "• do pl buňky napiš p\" = podvod → zobrazuje se jako nálepka": "4108", "• příklad: 2× p = -0.4, 3× p = -0.6, 4× p = -0.8, 5× p = -1.0": "7277", "• p se počítá jako odevzdaná práce (vstupuje do jmenovatele konzistenčního bonusu)": "8988", "• p nedává žádný bonus (0 % = žádný příspěvek k průměru bonusů)": "2821"};
         
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');
@@ -393,23 +393,16 @@
             
             // Souhrn - OPRAVENO pro české názvy sloupců
             const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
-            const finalniPrumerRaw = student['Finální průměr'] || student['Finální\nprůměr'] || '';
-            const vazenyPrumerVal = parseFloat((student['Vážený průměr'] || '').replace(',', '.'));
-            
-            // Pokud neni vazeny prumer, neni nic zadano
-            if (!vazenyPrumerVal || isNaN(vazenyPrumerVal)) {
-                var finalniPrumer = null;
-            } else {
-                const finalniPrumerNum = parseFloat(finalniPrumerRaw.replace(',', '.'));
-                finalniPrumer = isNaN(finalniPrumerNum) ? vazenyPrumerVal : Math.max(finalniPrumerNum, 1.0);
-            }
+            const finalniPrumerRaw = student['Finální průměr'] || student['Finální\nprůměr'] || '0';
+            const finalniPrumerNum = parseFloat(finalniPrumerRaw.replace(',', '.'));
+            const finalniPrumer = Math.max(finalniPrumerNum, 1.0);
             const znamka = student['ZNÁMKA'] || student['Známka'] || '';
             
             // Zaokrouhlení na 2 desetinná místa
             const vazenyFormatted = vazenyPrumer ? parseFloat(vazenyPrumer.replace(',', '.')).toFixed(2) : '—';
             const finalniFormatted = finalniPrumer ? finalniPrumer.toFixed(2) : '—';
             document.getElementById('weightedAvg').textContent = vazenyFormatted;
-            document.getElementById('finalAvg').textContent = finalniPrumer === null ? '—' : finalniFormatted;
+            document.getElementById('finalAvg').textContent = finalniFormatted;
             document.getElementById('grade').textContent = znamka || '—';
             
             // Podvod

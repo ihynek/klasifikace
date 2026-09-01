@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hodnocení - Třída 6SA - Biologie</title>
+    <title>Hodnocení - Třída 6SA</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -115,12 +115,12 @@
 <body>
     <div class="container">
         <h1>🔐 Hodnocení</h1>
-        <div class="subtitle">Třída 6SA - Biologie - Biologie</div>
+        <div class="subtitle">Třída 6SA - Biologie</div>
         
         <div class="login-box" id="loginBox">
             <div class="input-group">
                 <label class="input-label">Zadej své příjmení:</label>
-                <input type="text" class="search-input" id="searchInput" placeholder="např. Novák" autocomplete="off">
+                <input type="text" class="search-input" id="searchInput" placeholder="např. Novák (malá písmena)" autocomplete="off">
             </div>
             <div class="input-group">
                 <label class="input-label">Zadej svůj PIN:</label>
@@ -227,7 +227,7 @@
 ,"• Příklad: 2× P = -0.4, 3× P = -0.6, 4× P = -0.8, 5× P = -1.0",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,• P se počítá jako odevzdaná práce (vstupuje do jmenovatele konzistenčního bonusu),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,• P nedává žádný bonus (0 % = žádný příspěvek k průměru bonusů),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,`;
-        const pinsMapping = {"baxa david": "2824", "bureš šimon": "1409", "cenknerová eva": "5506", "čedroňová tereza": "5012", "havlová ivana": "4657", "hujerová patricie": "3286", "iraheta carmen": "2679", "jandová sofie anna": "9935", "kermesová anna": "2424", "koza tomáš": "7912", "lejtnarová iva": "1520", "macíková anna": "1488", "musiol kryštof": "2535", "pánková anna": "4582", "peroutka vít": "4811", "režňáková lucie": "9279", "řepík ondřej": "1434", "říhová adriana": "4257", "smrčinová tereza": "9928", "strejčková nela": "7873", "suchopárová adéla": "4611", "tarant tomáš": "8359", "tauferová natálie": "5557", "tuček matěj": "1106", "vasserbauer katrin": "3615", "večerníková tereza": "7924", "veselá karolína": "6574", "vyskočil václav": "5552", "zítková barbora": "3547", "pokud student neudělal žádné pl:": "4527", "• celkový bonus = 0": "6514", "• finální průměr = vážený průměr (bez bonusů)": "2674"};
+        const pinsMapping = {"julie andielová": "3386", "jan bartek": "8528", "ondřej bielčik": "8453", "barbora bohátková": "3863", "aleksander bořil": "7439", "kateřina brodecká": "6730", "olívie janušková": "8102", "albert jeránek": "9304", "tobiáš kaplan": "2801", "karolína keprtová": "9731", "jáchym kolman": "2987", "lukáš konvalinka": "2313", "jakub máca": "8470", "barbora meszárošová": "5315", "jarmila mutlová": "1784", "michal polovinčák": "4350", "marie povolná": "6494", "jan rúta": "4763", "dominik svatoš": "6069", "kryštof svoboda": "4340", "adéla silhava": "3923", "václav šopík": "3307", "lukáš tóth": "4089", "daniela turková": "6685", "barbora vaňková": "7063", "štěpánka voldánová": "7712", "anna vrbská": "4454", "robert zoch": "7603", "pokud student neudělal žádné pl:": "8554", "• celkový bonus = 0": "5518", "• finální průměr = vážený průměr (bez bonusů)": "7145", "• známka se normálně vypočítá": "3628", "bonusy z praktických listů (hodnotí se jen aktuálně zadané pl):": "3033", "• 90-100%: -0.25": "3959", "• 75-89%: -0.15": "1092", "• 60-74%: -0.1": "7480", "• výsledky 0 % se nepočítají jako odevzdaná práce": "3418", "bonus za konzistenci (platí od 3. odevzdané práce):": "3663", "• odevzdáš ≥75 % zadaných pl → extra -0.15": "4156", "penalizace za opisování (podvod):": "3736", "• do buňky pl napiš: p (= podvod)": "1428", "• platí pro opisujícího i pro toho, kdo práci poskytl": "4886", "• do pl buňky napiš p\" = podvod → zobrazuje se jako nálepka": "8343", "• příklad: 2× p = -0.4, 3× p = -0.6, 4× p = -0.8, 5× p = -1.0": "7351", "• p se počítá jako odevzdaná práce (vstupuje do jmenovatele konzistenčního bonusu)": "3074", "• p nedává žádný bonus (0 % = žádný příspěvek k průměru bonusů)": "1859"};
         
         function parseCSV(csv) {
             const lines = csv.trim().split('\n');
@@ -288,7 +288,7 @@
             }
             
             const found = students.find(s => {
-                const nameFields = ['Jméno a Jméno a Příjmení', 'Jméno a Příjmení', 'Jméno Jméno a Příjmení'];
+                const nameFields = ['Jméno a Příjmení', 'Příjmení', 'Jméno Příjmení'];
                 for (let field of nameFields) {
                     const name = (s[field] || '').toLowerCase();
                     if (name.includes(prijmeni)) return true;
@@ -302,7 +302,7 @@
             }
             
             let fullName = '';
-            const nameFields = ['Jméno a Jméno a Příjmení', 'Jméno a Příjmení', 'Jméno Jméno a Příjmení'];
+            const nameFields = ['Jméno a Příjmení', 'Příjmení', 'Jméno Příjmení'];
             for (let field of nameFields) {
                 if (found[field]) {
                     fullName = found[field];

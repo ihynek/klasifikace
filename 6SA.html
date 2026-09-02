@@ -119,15 +119,15 @@
         
         <div class="login-box" id="loginBox">
             <div class="input-group">
-                <label class="input-label">Zadej své jméno a příjmení:</label>
-                <input type="text" class="search-input" id="searchInput" placeholder="např. jan novák (malá písmena)" autocomplete="off">
+                <label class="input-label">Zadej své příjmení:</label>
+                <input type="text" class="search-input" id="searchInput" placeholder="např. Novák (malá písmena)" autocomplete="off">
             </div>
             <div class="input-group">
                 <label class="input-label">Zadej svůj PIN:</label>
                 <input type="password" class="pin-input" id="pinInput" placeholder="• • • •" maxlength="4" autocomplete="off">
             </div>
             <button class="btn-verify" id="btnVerify">Zobrazit hodnocení</button>
-            <div class="error-message" id="errorMessage">❌ Špatné jméno nebo PIN!</div>
+            <div class="error-message" id="errorMessage">❌ Špatné příjmení nebo PIN!</div>
             
             <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee;">
                 <a href="index.html" style="color: #667eea; text-decoration: none; font-size: 0.95em; transition: color 0.3s;">
@@ -178,7 +178,7 @@
     
     <script>
         const csvData = `Poř. č.,Příjmení,VT1,VT2,VT3,VT4,VT5,VT6 ,MT1,MT2,MT3,MT4,ST,MT ,LP,Vážený průměr,PL1 (%),PL2 (%),PL3 (%),PL4 (%),PL5 (%),PL6 (%),PL7 (%),PL8 (%),Počet PL,% PL,Průměr bonusů,Bonus 75%+,Celkový bonus,Finální průměr,ZNÁMKA,email,PIN,Zadaných PL,PODVOD (zadej slovem),Podvod (nálepka)
-1,Julie Andielová,,,,,,,,,,,,,,,P,,,,,,,,,,,,,,,julie_andielova@student.gymberoun.cz,3386,,,
+1,Julie Andielová,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,julie_andielova@student.gymberoun.cz,3386,,,
 2,Jan Bartek,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,jan_bartek@student.gymberoun.cz,8528,,,
 3,Ondřej Bielčik,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ondrej_bielcik@student.gymberoun.cz,8453,,,
 4,Barbora Bohátková,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,barbora_bohatkova@student.gymberoun.cz,3863,,,
@@ -223,10 +223,11 @@
 ,Penalizace za opisování (PODVOD):,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,• Do buňky PL napiš: P (= podvod),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,"• Platí pro opisujícího I pro toho, kdo práci poskytl",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,"• Do PL buňky napiš "P" = podvod → zobrazuje se jako nálepka, bez dopadu na průměr (do příštího roku)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"• Do PL buňky napiš ""P"" = podvod → zobrazuje se jako nálepka, bez dopadu na průměr (do příštího roku)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,"• Příklad: 2× P = -0.4, 3× P = -0.6, 4× P = -0.8, 5× P = -1.0",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,• P se počítá jako odevzdaná práce (vstupuje do jmenovatele konzistenčního bonusu),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,• P nedává žádný bonus (0 % = žádný příspěvek k průměru bonusů),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,`;
+,• P nedává žádný bonus (0 % = žádný příspěvek k průměru bonusů),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+`;
         const pinsMapping = {"julie andielová": "3386", "jan bartek": "8528", "ondřej bielčik": "8453", "barbora bohátková": "3863", "aleksander bořil": "7439", "kateřina brodecká": "6730", "olívie janušková": "8102", "albert jeránek": "9304", "tobiáš kaplan": "2801", "karolína keprtová": "9731", "jáchym kolman": "2987", "lukáš konvalinka": "2313", "jakub máca": "8470", "barbora meszárošová": "5315", "jarmila mutlová": "1784", "michal polovinčák": "4350", "marie povolná": "6494", "jan rúta": "4763", "dominik svatoš": "6069", "kryštof svoboda": "4340", "adéla silhava": "3923", "václav šopík": "3307", "lukáš tóth": "4089", "daniela turková": "6685", "barbora vaňková": "7063", "štěpánka voldánová": "7712", "anna vrbská": "4454", "robert zoch": "7603", "pokud student neudělal žádné pl:": "8554", "• celkový bonus = 0": "5518", "• finální průměr = vážený průměr (bez bonusů)": "7145", "• známka se normálně vypočítá": "3628", "bonusy z praktických listů (hodnotí se jen aktuálně zadané pl):": "3033", "• 90-100%: -0.25": "3959", "• 75-89%: -0.15": "1092", "• 60-74%: -0.1": "7480", "• výsledky 0 % se nepočítají jako odevzdaná práce": "3418", "bonus za konzistenci (platí od 3. odevzdané práce):": "3663", "• odevzdáš ≥75 % zadaných pl → extra -0.15": "4156", "penalizace za opisování (podvod):": "3736", "• do buňky pl napiš: p (= podvod)": "1428", "• platí pro opisujícího i pro toho, kdo práci poskytl": "4886", "• do pl buňky napiš p\" = podvod → zobrazuje se jako nálepka": "8343", "• příklad: 2× p = -0.4, 3× p = -0.6, 4× p = -0.8, 5× p = -1.0": "7351", "• p se počítá jako odevzdaná práce (vstupuje do jmenovatele konzistenčního bonusu)": "3074", "• p nedává žádný bonus (0 % = žádný příspěvek k průměru bonusů)": "1859"};
         
         function parseCSV(csv) {

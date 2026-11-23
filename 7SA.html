@@ -143,6 +143,10 @@
                 <div class="grades-grid" id="vtGrades"></div>
             </div>
             <div class="grade-section">
+                <div class="section-title">📊 Srovnávací test (ST)</div>
+                <div class="grades-grid" id="stGrade"></div>
+            </div>
+            <div class="grade-section">
                 <div class="section-title">📄 Malé testy (MT)</div>
                 <div class="grades-grid" id="mtGrades"></div>
             </div>
@@ -364,6 +368,12 @@
                 vtContainer.innerHTML += `<div class="grade-item"><div class="grade-label">VT${i}</div><div class="grade-value ${value ? '' : 'empty'}">${value || '—'}</div></div>`;
             }
             
+            // Srovnávací test
+            const stContainer = document.getElementById('stGrade');
+            stContainer.innerHTML = '';
+            const stValue = student['ST'];
+            stContainer.innerHTML += `<div class="grade-item"><div class="grade-label">ST</div><div class="grade-value ${stValue ? '' : 'empty'}">${stValue || '—'}</div></div>`;
+
             // Malé testy
             const mtContainer = document.getElementById('mtGrades');
             mtContainer.innerHTML = '';
@@ -406,16 +416,23 @@
             
             // Souhrn - OPRAVENO pro české názvy sloupců
             const vazenyPrumer = student['Vážený průměr'] || student['Vážený\nprůměr'] || '';
-            const finalniPrumerRaw = student['Finální průměr'] || student['Finální\nprůměr'] || '0';
-            const finalniPrumerNum = parseFloat(finalniPrumerRaw.replace(',', '.'));
-            const finalniPrumer = Math.max(finalniPrumerNum, 1.0);
+            const finalniPrumerRaw = student['Finální průměr'] || student['Finální\nprůměr'] || '';
+            const vazenyPrumerVal = parseFloat((student['Vážený průměr'] || '').replace(',', '.'));
+            
+            // Pokud neni vazeny prumer, neni nic zadano
+            if (!vazenyPrumerVal || isNaN(vazenyPrumerVal)) {
+                var finalniPrumer = null;
+            } else {
+                const finalniPrumerNum = parseFloat(finalniPrumerRaw.replace(',', '.'));
+                finalniPrumer = isNaN(finalniPrumerNum) ? vazenyPrumerVal : Math.max(finalniPrumerNum, 1.0);
+            }
             const znamka = student['ZNÁMKA'] || student['Známka'] || '';
             
             // Zaokrouhlení na 2 desetinná místa
             const vazenyFormatted = vazenyPrumer ? parseFloat(vazenyPrumer.replace(',', '.')).toFixed(2) : '—';
             const finalniFormatted = finalniPrumer ? finalniPrumer.toFixed(2) : '—';
             document.getElementById('weightedAvg').textContent = vazenyFormatted;
-            document.getElementById('finalAvg').textContent = finalniFormatted;
+            document.getElementById('finalAvg').textContent = finalniPrumer === null ? '—' : finalniFormatted;
             document.getElementById('grade').textContent = znamka || '—';
             
             // Podvod

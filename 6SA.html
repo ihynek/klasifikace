@@ -342,7 +342,7 @@
             // Velké testy
             const vtContainer = document.getElementById('vtGrades');
             vtContainer.innerHTML = '';
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 10; i++) {
                 const value = student[`VT${i}`];
                 vtContainer.innerHTML += `<div class="grade-item"><div class="grade-label">VT${i}</div><div class="grade-value ${value ? '' : 'empty'}">${value || '—'}</div></div>`;
             }
@@ -350,7 +350,7 @@
             // Malé testy
             const mtContainer = document.getElementById('mtGrades');
             mtContainer.innerHTML = '';
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 10; i++) {
                 const value = student[`MT${i}`];
                 mtContainer.innerHTML += `<div class="grade-item"><div class="grade-label">MT${i}</div><div class="grade-value ${value ? '' : 'empty'}">${value || '—'}</div></div>`;
             }
@@ -364,7 +364,7 @@
             // Praktické listy
             const plContainer = document.getElementById('plGrades');
             plContainer.innerHTML = '';
-            for (let i = 1; i <= 8; i++) {
+            for (let i = 1; i <= 12; i++) {
                 // Zkusíme různé formáty názvů sloupců
                 let value = student[`PL${i} (%)`] || student[`PL${i}\n(%)`] || student[`PL${i}`];
                 let colorClass = '';
